@@ -22,6 +22,7 @@ canadian-toad
 distribution-1
 vegetation-mdoels-1
 soil-mdoels-1
+linear-features-1
 predicted-abundance-1
 forested-region-1
 prairie-region-1
@@ -38,6 +39,7 @@ western-toad
 distribution-6
 vegetation-mdoels-2
 soil-mdoels-2
+linear-features-2
 predicted-abundance-2
 forested-region-2
 prairie-region-2
@@ -46,6 +48,7 @@ wood-frog
 distribution-7
 vegetation-mdoels-3
 soil-mdoels-3
+linear-features-3
 predicted-abundance-3
 forested-region-3
 prairie-region-3
