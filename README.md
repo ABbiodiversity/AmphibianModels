@@ -1,6 +1,6 @@
 # ABMI Amphibian Technical Documentation
 
-<img src="D:/ABMI-covid-19/Amphibians/beta/logo/ABMI-Horizontal-FullColour.png" align="left" />
+<img src="images/ABMI-Horizontal-FullColour.png" align="left" />
 
 ## Overview
 
