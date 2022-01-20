@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Plains Spadefoot | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada</title>
+  <meta name="description" content="Technical documentation describing the ABMI amphibian species models." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Plains Spadefoot | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Technical documentation describing the ABMI amphibian species models." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Plains Spadefoot | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada" />
+  
+  <meta name="twitter:description" content="Technical documentation describing the ABMI amphibian species models." />
+  
+
+<meta name="author" content="Brandon Allen" />
+
+
+<meta name="date" content="2022-01-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="northern-leopard-frog.html"/>
+<link rel="next" href="western-toad.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Amphibians</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Summary</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#expert-review"><i class="fa fa-check"></i><b>2.1</b> Expert Review</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="processing-of-vocalization-events.html"><a href="processing-of-vocalization-events.html"><i class="fa fa-check"></i><b>3</b> Processing of vocalization events</a></li>
+<li class="chapter" data-level="4" data-path="species-distribution-models.html"><a href="species-distribution-models.html"><i class="fa fa-check"></i><b>4</b> Species Distribution Models</a><ul>
+<li class="chapter" data-level="4.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#landcover-information"><i class="fa fa-check"></i><b>4.1</b> Landcover information</a></li>
+<li class="chapter" data-level="4.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#vegetation-based-species-models"><i class="fa fa-check"></i><b>4.2</b> Vegetation based species models</a></li>
+<li class="chapter" data-level="4.3" data-path="species-distribution-models.html"><a href="species-distribution-models.html#soil-based-species-models"><i class="fa fa-check"></i><b>4.3</b> Soil based species models</a></li>
+<li class="chapter" data-level="4.4" data-path="species-distribution-models.html"><a href="species-distribution-models.html#reporting-regions"><i class="fa fa-check"></i><b>4.4</b> Reporting Regions</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html"><i class="fa fa-check"></i><b>5</b> Boreal Chorus Frog</a><ul>
+<li class="chapter" data-level="5.1" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#distribution"><i class="fa fa-check"></i><b>5.1</b> Distribution</a></li>
+<li class="chapter" data-level="5.2" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#vegetation-mdoels"><i class="fa fa-check"></i><b>5.2</b> Vegetation Mdoels</a></li>
+<li class="chapter" data-level="5.3" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#soil-mdoels"><i class="fa fa-check"></i><b>5.3</b> Soil Mdoels</a></li>
+<li class="chapter" data-level="5.4" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#linear-features"><i class="fa fa-check"></i><b>5.4</b> Linear Features</a></li>
+<li class="chapter" data-level="5.5" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#predicted-abundance"><i class="fa fa-check"></i><b>5.5</b> Predicted Abundance</a></li>
+<li class="chapter" data-level="5.6" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#forested-region"><i class="fa fa-check"></i><b>5.6</b> Forested Region</a></li>
+<li class="chapter" data-level="5.7" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#prairie-region"><i class="fa fa-check"></i><b>5.7</b> Prairie Region</a></li>
+<li class="chapter" data-level="5.8" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#mountain-region"><i class="fa fa-check"></i><b>5.8</b> Mountain Region</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="canadian-toad.html"><a href="canadian-toad.html"><i class="fa fa-check"></i><b>6</b> Canadian Toad</a><ul>
+<li class="chapter" data-level="6.1" data-path="canadian-toad.html"><a href="canadian-toad.html#distribution-1"><i class="fa fa-check"></i><b>6.1</b> Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="canadian-toad.html"><a href="canadian-toad.html#vegetation-mdoels-1"><i class="fa fa-check"></i><b>6.2</b> Vegetation Mdoels</a></li>
+<li class="chapter" data-level="6.3" data-path="canadian-toad.html"><a href="canadian-toad.html#soil-mdoels-1"><i class="fa fa-check"></i><b>6.3</b> Soil Mdoels</a></li>
+<li class="chapter" data-level="6.4" data-path="canadian-toad.html"><a href="canadian-toad.html#predicted-abundance-1"><i class="fa fa-check"></i><b>6.4</b> Predicted Abundance</a></li>
+<li class="chapter" data-level="6.5" data-path="canadian-toad.html"><a href="canadian-toad.html#forested-region-1"><i class="fa fa-check"></i><b>6.5</b> Forested Region</a></li>
+<li class="chapter" data-level="6.6" data-path="canadian-toad.html"><a href="canadian-toad.html#prairie-region-1"><i class="fa fa-check"></i><b>6.6</b> Prairie Region</a></li>
+<li class="chapter" data-level="6.7" data-path="canadian-toad.html"><a href="canadian-toad.html#mountain-region-1"><i class="fa fa-check"></i><b>6.7</b> Mountain Region</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="columbia-spotted-frog.html"><a href="columbia-spotted-frog.html"><i class="fa fa-check"></i><b>7</b> Columbia Spotted Frog</a><ul>
+<li class="chapter" data-level="7.1" data-path="columbia-spotted-frog.html"><a href="columbia-spotted-frog.html#distribution-2"><i class="fa fa-check"></i><b>7.1</b> Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="great-plains-toad.html"><a href="great-plains-toad.html"><i class="fa fa-check"></i><b>8</b> Great Plains Toad</a><ul>
+<li class="chapter" data-level="8.1" data-path="great-plains-toad.html"><a href="great-plains-toad.html#distribution-3"><i class="fa fa-check"></i><b>8.1</b> Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="northern-leopard-frog.html"><a href="northern-leopard-frog.html"><i class="fa fa-check"></i><b>9</b> Northern Leopard Frog</a><ul>
+<li class="chapter" data-level="9.1" data-path="northern-leopard-frog.html"><a href="northern-leopard-frog.html#distribution-4"><i class="fa fa-check"></i><b>9.1</b> Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="plains-spadefoot.html"><a href="plains-spadefoot.html"><i class="fa fa-check"></i><b>10</b> Plains Spadefoot</a><ul>
+<li class="chapter" data-level="10.1" data-path="plains-spadefoot.html"><a href="plains-spadefoot.html#distribution-5"><i class="fa fa-check"></i><b>10.1</b> Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="western-toad.html"><a href="western-toad.html"><i class="fa fa-check"></i><b>11</b> Western Toad</a><ul>
+<li class="chapter" data-level="11.1" data-path="western-toad.html"><a href="western-toad.html#distribution-6"><i class="fa fa-check"></i><b>11.1</b> Distribution</a></li>
+<li class="chapter" data-level="11.2" data-path="western-toad.html"><a href="western-toad.html#vegetation-mdoels-2"><i class="fa fa-check"></i><b>11.2</b> Vegetation Mdoels</a></li>
+<li class="chapter" data-level="11.3" data-path="western-toad.html"><a href="western-toad.html#soil-mdoels-2"><i class="fa fa-check"></i><b>11.3</b> Soil Mdoels</a></li>
+<li class="chapter" data-level="11.4" data-path="western-toad.html"><a href="western-toad.html#predicted-abundance-2"><i class="fa fa-check"></i><b>11.4</b> Predicted Abundance</a></li>
+<li class="chapter" data-level="11.5" data-path="western-toad.html"><a href="western-toad.html#forested-region-2"><i class="fa fa-check"></i><b>11.5</b> Forested Region</a></li>
+<li class="chapter" data-level="11.6" data-path="western-toad.html"><a href="western-toad.html#prairie-region-2"><i class="fa fa-check"></i><b>11.6</b> Prairie Region</a></li>
+<li class="chapter" data-level="11.7" data-path="western-toad.html"><a href="western-toad.html#mountain-region-2"><i class="fa fa-check"></i><b>11.7</b> Mountain Region</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="wood-frog.html"><a href="wood-frog.html"><i class="fa fa-check"></i><b>12</b> Wood Frog</a><ul>
+<li class="chapter" data-level="12.1" data-path="wood-frog.html"><a href="wood-frog.html#distribution-7"><i class="fa fa-check"></i><b>12.1</b> Distribution</a></li>
+<li class="chapter" data-level="12.2" data-path="wood-frog.html"><a href="wood-frog.html#vegetation-mdoels-3"><i class="fa fa-check"></i><b>12.2</b> Vegetation Mdoels</a></li>
+<li class="chapter" data-level="12.3" data-path="wood-frog.html"><a href="wood-frog.html#soil-mdoels-3"><i class="fa fa-check"></i><b>12.3</b> Soil Mdoels</a></li>
+<li class="chapter" data-level="12.4" data-path="wood-frog.html"><a href="wood-frog.html#predicted-abundance-3"><i class="fa fa-check"></i><b>12.4</b> Predicted Abundance</a></li>
+<li class="chapter" data-level="12.5" data-path="wood-frog.html"><a href="wood-frog.html#forested-region-3"><i class="fa fa-check"></i><b>12.5</b> Forested Region</a></li>
+<li class="chapter" data-level="12.6" data-path="wood-frog.html"><a href="wood-frog.html#prairie-region-3"><i class="fa fa-check"></i><b>12.6</b> Prairie Region</a></li>
+<li class="chapter" data-level="12.7" data-path="wood-frog.html"><a href="wood-frog.html#mountain-region-3"><i class="fa fa-check"></i><b>12.7</b> Mountain Region</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="plains-spadefoot" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Plains Spadefoot</h1>
+<p>The Plains Spadefoot (<em>Spea bombifrons</em>), similar to the Great Plains Toad, occurs in the southern portion of the Alberta Grasslands. They are grey, brown, or olive with reddish spots and often match their local substrate. This species occupies shallow natural and anthropogenic waterbodies (e.g., temporary ponds, ditches, etc) and burrows to avoid dry conditions. They hibernate in deep burrows they dig themselves, or use unoccupied mammal burrows (<a href="https://canadianherpetology.ca" class="uri">https://canadianherpetology.ca</a>)</p>
+<div id="distribution-5" class="section level2">
+<h2><span class="header-section-number">10.1</span> Distribution</h2>
+<p>The Plains Spadefoot was rare in our data set and was detected at 11 of 1648 survey locations. All observations were found in the Grasslands natural region.</p>
+<div class="figure">
+<img src="D:/ABMI-covid-19/Amphibians/results/figures/occurrence/PLSP-sampling_2022-01-13.png" alt="The occurrence of Plains Spadefoot detected between 2013-2021 at ABMI and BU locations." />
+<p class="caption">The occurrence of Plains Spadefoot detected between 2013-2021 at ABMI and BU locations.</p>
+</div>
+<p>As we have so few detections of this species, we are unable to determine the breeding vocalization period.</p>
+<div class="figure">
+<img src="D:/ABMI-covid-19/Amphibians/results/figures/seasonality/all/PLSP-seasonality_2022-01-13.png" alt="The frequency of detections across sites aggregated by Julian calendar day." />
+<p class="caption">The frequency of detections across sites aggregated by Julian calendar day.</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="northern-leopard-frog.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="western-toad.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Amphibians.pdf", "Amphibians.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
