@@ -1,13 +1,12 @@
 tab:vegetation
-tab:soil
 summary
 introduction
+the-alberta-biodiversity-monitoring-institute
+amphibians-101
 expert-review
 processing-of-vocalization-events
 species-distribution-models
 landcover-information
-vegetation-based-species-models
-soil-based-species-models
 reporting-regions
 boreal-chorus-frog
 distribution
@@ -19,7 +18,6 @@ predicted-abundance
 sector-effects
 forested-region
 prairie-region
-mountain-region
 canadian-toad
 distribution-1
 seasonality-1
@@ -30,7 +28,6 @@ predicted-abundance-1
 sector-effects-1
 forested-region-1
 prairie-region-1
-mountain-region-1
 columbia-spotted-frog
 distribution-2
 seasonality-2
@@ -53,7 +50,6 @@ predicted-abundance-2
 sector-effects-2
 forested-region-2
 prairie-region-2
-mountain-region-2
 wood-frog
 distribution-7
 seasonality-7
@@ -64,4 +60,3 @@ predicted-abundance-3
 sector-effects-3
 forested-region-3
 prairie-region-3
-mountain-region-3
