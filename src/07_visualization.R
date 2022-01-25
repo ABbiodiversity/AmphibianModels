@@ -76,7 +76,7 @@ boundary.in$Boundary <- "Boundary"
 ######################
 
 png(paste("results/figures/occurrence/ABMI-sampling-grid_", Sys.Date(), ".png", sep = ""),
-    height = 2400,
+    height = 1600,
     width = 1600, 
     res = 300)
 
@@ -106,7 +106,7 @@ dev.off()
 ####################
 
 png(paste("results/figures/occurrence/BU-sampling-grid_", Sys.Date(), ".png", sep = ""),
-    height = 2400,
+    height = 1600,
     width = 1600, 
     res = 300)
 
