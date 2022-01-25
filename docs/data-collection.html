@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Data Collection | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada</title>
+  <meta name="description" content="Technical documentation describing the ABMI amphibian species models." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Data Collection | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Technical documentation describing the ABMI amphibian species models." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Data Collection | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada" />
+  
+  <meta name="twitter:description" content="Technical documentation describing the ABMI amphibian species models." />
+  
+
+<meta name="author" content="Brandon Allen" />
+
+
+<meta name="date" content="2022-01-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="species-distribution-models.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Amphibian Monitoring</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Summary</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#the-alberta-biodiversity-monitoring-institute"><i class="fa fa-check"></i><b>2.1</b> The Alberta Biodiversity Monitoring Institute</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#amphibians-101"><i class="fa fa-check"></i><b>2.2</b> Amphibians 101</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#expert-review"><i class="fa fa-check"></i><b>2.3</b> Expert Review</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-collection.html"><a href="data-collection.html"><i class="fa fa-check"></i><b>3</b> Data Collection</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-collection.html"><a href="data-collection.html#aru-deployments"><i class="fa fa-check"></i><b>3.1</b> ARU Deployments</a></li>
+<li class="chapter" data-level="3.2" data-path="data-collection.html"><a href="data-collection.html#processing-of-vocalization-events"><i class="fa fa-check"></i><b>3.2</b> Processing of vocalization events</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="species-distribution-models.html"><a href="species-distribution-models.html"><i class="fa fa-check"></i><b>4</b> Species Distribution Models</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#landcover-information"><i class="fa fa-check"></i><b>4.1</b> Landcover information</a></li>
+<li class="chapter" data-level="4.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#climate"><i class="fa fa-check"></i><b>4.2</b> Climate</a></li>
+<li class="chapter" data-level="4.3" data-path="species-distribution-models.html"><a href="species-distribution-models.html#reporting-regions"><i class="fa fa-check"></i><b>4.3</b> Reporting Regions</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html"><i class="fa fa-check"></i><b>5</b> Boreal Chorus Frog</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#distribution"><i class="fa fa-check"></i><b>5.1</b> Distribution</a></li>
+<li class="chapter" data-level="5.2" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#seasonality"><i class="fa fa-check"></i><b>5.2</b> Seasonality</a></li>
+<li class="chapter" data-level="5.3" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#vegetation-models"><i class="fa fa-check"></i><b>5.3</b> Vegetation Models</a></li>
+<li class="chapter" data-level="5.4" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#soil-models"><i class="fa fa-check"></i><b>5.4</b> Soil Models</a></li>
+<li class="chapter" data-level="5.5" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#linear-features"><i class="fa fa-check"></i><b>5.5</b> Linear Features</a></li>
+<li class="chapter" data-level="5.6" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#predicted-abundance"><i class="fa fa-check"></i><b>5.6</b> Predicted Abundance</a></li>
+<li class="chapter" data-level="5.7" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#sector-effects"><i class="fa fa-check"></i><b>5.7</b> Sector Effects</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#forested-region"><i class="fa fa-check"></i><b>5.7.1</b> Forested Region</a></li>
+<li class="chapter" data-level="5.7.2" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html#prairie-region"><i class="fa fa-check"></i><b>5.7.2</b> Prairie Region</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="canadian-toad.html"><a href="canadian-toad.html"><i class="fa fa-check"></i><b>6</b> Canadian Toad</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="canadian-toad.html"><a href="canadian-toad.html#distribution-1"><i class="fa fa-check"></i><b>6.1</b> Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="canadian-toad.html"><a href="canadian-toad.html#seasonality-1"><i class="fa fa-check"></i><b>6.2</b> Seasonality</a></li>
+<li class="chapter" data-level="6.3" data-path="canadian-toad.html"><a href="canadian-toad.html#vegetation-models-1"><i class="fa fa-check"></i><b>6.3</b> Vegetation Models</a></li>
+<li class="chapter" data-level="6.4" data-path="canadian-toad.html"><a href="canadian-toad.html#soil-models-1"><i class="fa fa-check"></i><b>6.4</b> Soil Models</a></li>
+<li class="chapter" data-level="6.5" data-path="canadian-toad.html"><a href="canadian-toad.html#linear-features-1"><i class="fa fa-check"></i><b>6.5</b> Linear Features</a></li>
+<li class="chapter" data-level="6.6" data-path="canadian-toad.html"><a href="canadian-toad.html#predicted-abundance-1"><i class="fa fa-check"></i><b>6.6</b> Predicted Abundance</a></li>
+<li class="chapter" data-level="6.7" data-path="canadian-toad.html"><a href="canadian-toad.html#sector-effects-1"><i class="fa fa-check"></i><b>6.7</b> Sector Effects</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="canadian-toad.html"><a href="canadian-toad.html#forested-region-1"><i class="fa fa-check"></i><b>6.7.1</b> Forested Region</a></li>
+<li class="chapter" data-level="6.7.2" data-path="canadian-toad.html"><a href="canadian-toad.html#prairie-region-1"><i class="fa fa-check"></i><b>6.7.2</b> Prairie Region</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="columbia-spotted-frog.html"><a href="columbia-spotted-frog.html"><i class="fa fa-check"></i><b>7</b> Columbia Spotted Frog</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="columbia-spotted-frog.html"><a href="columbia-spotted-frog.html#distribution-2"><i class="fa fa-check"></i><b>7.1</b> Distribution</a></li>
+<li class="chapter" data-level="7.2" data-path="columbia-spotted-frog.html"><a href="columbia-spotted-frog.html#seasonality-2"><i class="fa fa-check"></i><b>7.2</b> Seasonality</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="great-plains-toad.html"><a href="great-plains-toad.html"><i class="fa fa-check"></i><b>8</b> Great Plains Toad</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="great-plains-toad.html"><a href="great-plains-toad.html#distribution-3"><i class="fa fa-check"></i><b>8.1</b> Distribution</a></li>
+<li class="chapter" data-level="8.2" data-path="great-plains-toad.html"><a href="great-plains-toad.html#seasonality-3"><i class="fa fa-check"></i><b>8.2</b> Seasonality</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="northern-leopard-frog.html"><a href="northern-leopard-frog.html"><i class="fa fa-check"></i><b>9</b> Northern Leopard Frog</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="northern-leopard-frog.html"><a href="northern-leopard-frog.html#distribution-4"><i class="fa fa-check"></i><b>9.1</b> Distribution</a></li>
+<li class="chapter" data-level="9.2" data-path="northern-leopard-frog.html"><a href="northern-leopard-frog.html#seasonality-4"><i class="fa fa-check"></i><b>9.2</b> Seasonality</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="plains-spadefoot.html"><a href="plains-spadefoot.html"><i class="fa fa-check"></i><b>10</b> Plains Spadefoot</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="plains-spadefoot.html"><a href="plains-spadefoot.html#distribution-5"><i class="fa fa-check"></i><b>10.1</b> Distribution</a></li>
+<li class="chapter" data-level="10.2" data-path="plains-spadefoot.html"><a href="plains-spadefoot.html#seasonality-5"><i class="fa fa-check"></i><b>10.2</b> Seasonality</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="western-toad.html"><a href="western-toad.html"><i class="fa fa-check"></i><b>11</b> Western Toad</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="western-toad.html"><a href="western-toad.html#distribution-6"><i class="fa fa-check"></i><b>11.1</b> Distribution</a></li>
+<li class="chapter" data-level="11.2" data-path="western-toad.html"><a href="western-toad.html#seasonality-6"><i class="fa fa-check"></i><b>11.2</b> Seasonality</a></li>
+<li class="chapter" data-level="11.3" data-path="western-toad.html"><a href="western-toad.html#vegetation-models-2"><i class="fa fa-check"></i><b>11.3</b> Vegetation Models</a></li>
+<li class="chapter" data-level="11.4" data-path="western-toad.html"><a href="western-toad.html#soil-models-2"><i class="fa fa-check"></i><b>11.4</b> Soil Models</a></li>
+<li class="chapter" data-level="11.5" data-path="western-toad.html"><a href="western-toad.html#linear-features-2"><i class="fa fa-check"></i><b>11.5</b> Linear Features</a></li>
+<li class="chapter" data-level="11.6" data-path="western-toad.html"><a href="western-toad.html#predicted-abundance-2"><i class="fa fa-check"></i><b>11.6</b> Predicted Abundance</a></li>
+<li class="chapter" data-level="11.7" data-path="western-toad.html"><a href="western-toad.html#sector-effects-2"><i class="fa fa-check"></i><b>11.7</b> Sector Effects</a>
+<ul>
+<li class="chapter" data-level="11.7.1" data-path="western-toad.html"><a href="western-toad.html#forested-region-2"><i class="fa fa-check"></i><b>11.7.1</b> Forested Region</a></li>
+<li class="chapter" data-level="11.7.2" data-path="western-toad.html"><a href="western-toad.html#prairie-region-2"><i class="fa fa-check"></i><b>11.7.2</b> Prairie Region</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="wood-frog.html"><a href="wood-frog.html"><i class="fa fa-check"></i><b>12</b> Wood Frog</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="wood-frog.html"><a href="wood-frog.html#distribution-7"><i class="fa fa-check"></i><b>12.1</b> Distribution</a></li>
+<li class="chapter" data-level="12.2" data-path="wood-frog.html"><a href="wood-frog.html#seasonality-7"><i class="fa fa-check"></i><b>12.2</b> Seasonality</a></li>
+<li class="chapter" data-level="12.3" data-path="wood-frog.html"><a href="wood-frog.html#vegetation-models-3"><i class="fa fa-check"></i><b>12.3</b> Vegetation Models</a></li>
+<li class="chapter" data-level="12.4" data-path="wood-frog.html"><a href="wood-frog.html#soil-models-3"><i class="fa fa-check"></i><b>12.4</b> Soil Models</a></li>
+<li class="chapter" data-level="12.5" data-path="wood-frog.html"><a href="wood-frog.html#linear-features-3"><i class="fa fa-check"></i><b>12.5</b> Linear Features</a></li>
+<li class="chapter" data-level="12.6" data-path="wood-frog.html"><a href="wood-frog.html#predicted-abundance-3"><i class="fa fa-check"></i><b>12.6</b> Predicted Abundance</a></li>
+<li class="chapter" data-level="12.7" data-path="wood-frog.html"><a href="wood-frog.html#sector-effects-3"><i class="fa fa-check"></i><b>12.7</b> Sector Effects</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="wood-frog.html"><a href="wood-frog.html#forested-region-3"><i class="fa fa-check"></i><b>12.7.1</b> Forested Region</a></li>
+<li class="chapter" data-level="12.7.2" data-path="wood-frog.html"><a href="wood-frog.html#prairie-region-3"><i class="fa fa-check"></i><b>12.7.2</b> Prairie Region</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-collection" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Data Collection</h1>
+<div id="aru-deployments" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> ARU Deployments</h2>
+<p>The ARU data used to construct these SDM have come from the following ABMI surveys; Ecosystem Health sites (2015-2021); Adopt-a-Camera/ARU (2017); Citizen Science ARU (2016); Edge-Interior (2017); Northern Focal Areas (2019-2020); Southern Focal Areas (2020); Amphibian Monitoring (2020); and Operation Grassland (2015). Across the years, there were 3303 unique surveys completed.</p>
+<div class="figure">
+<img src="Amphibians_files/figure-html/occurrence/ABMI-sampling-grid_2022-01-20.png" style="width:80.0%" alt="" />
+<p class="caption">ARU surveyes conducted by the ABMI between 2015-2021.</p>
+</div>
+<p>We also compiled data from the Bioacoustic Units Wetlands surveys (2013-2019). Across the years, there were 1324 unique surveys completed.
+<img src="Amphibians_files/figure-html/occurrence/BU-sampling-grid_2022-01-20.png" style="width:80.0%" alt="ARU surveyes conducted by the BU between 2013-2019." /></p>
+</div>
+<div id="processing-of-vocalization-events" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Processing of vocalization events</h2>
+<p>Vocalization data was processed through the WildTrax platform (<a href="https://www.wildtrax.ca/" class="uri">https://www.wildtrax.ca/</a>). However, due to the differences in how ARU data was collected between projects, and the time of deployment, recordings were standardized using the following procedure:</p>
+<ul>
+<li>Only observations detected within the first minute of recordings was used.</li>
+<li>Recordings with high levels of noises due to precipitation, wind conditions, or industrial and background activity were excluded permitting this metadata was available.</li>
+<li>To replicate the conditions of a midnight survey, we filtered for recording events between 23:30-02:30 hours. We acknowledge that this survey interval may not be optimal for all vocalizing amphibians. Therefore, the calling phenology of each species will be investigated once sufficient data is available.</li>
+<li>Only species that occurred at greater than 20 ARUs were maintained for analysis.</li>
+<li>For all species with sufficient data, we assessed the seasonality window of calls by aggregating the percentage of detections across ARUs by Julian calendar day.</li>
+<li>Local temperature during the recording event and Julian calendar day was used to account for the variation in detectability throughout the survey window.</li>
+</ul>
+<p>After cleaning the data, there were 12330 unique recordings used for creating SDMs based on vegetation data (Boreal, Foothills, Canadian Shield, Rocky Mountain, and Parkland natural regions), and 4396 unique recordings used for creating SDMs based on soil data (Parkland and Grassland natural regions).</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="species-distribution-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Amphibian_Monitoring.pdf", "Amphibian_Monitoring.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
