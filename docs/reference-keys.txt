@@ -5,6 +5,8 @@ introduction
 the-alberta-biodiversity-monitoring-institute
 amphibians-101
 expert-review
+data-collection
+aru-deployments
 processing-of-vocalization-events
 species-distribution-models
 landcover-information
