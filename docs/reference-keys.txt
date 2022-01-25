@@ -1,4 +1,5 @@
-tab:vegetation
+tab:landcover
+tab:climate
 summary
 introduction
 the-alberta-biodiversity-monitoring-institute
@@ -7,6 +8,7 @@ expert-review
 processing-of-vocalization-events
 species-distribution-models
 landcover-information
+climate
 reporting-regions
 boreal-chorus-frog
 distribution
