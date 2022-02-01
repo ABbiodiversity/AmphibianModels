@@ -24,7 +24,7 @@
 <meta name="author" content="Brandon Allen" />
 
 
-<meta name="date" content="2022-01-27" />
+<meta name="date" content="2022-02-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -97,7 +97,12 @@ div.csl-indent {
 <li><a href="./">Amphibian Monitoring</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Summary</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Summary</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i><b>1.1</b> Acknowledgement</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#suggested-citation"><i class="fa fa-check"></i><b>1.2</b> Suggested citation</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.3</b> Contact</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#the-alberta-biodiversity-monitoring-institute"><i class="fa fa-check"></i><b>2.1</b> The Alberta Biodiversity Monitoring Institute</a></li>
@@ -111,9 +116,13 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4" data-path="species-distribution-models.html"><a href="species-distribution-models.html"><i class="fa fa-check"></i><b>4</b> Species Distribution Models</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#landcover-information"><i class="fa fa-check"></i><b>4.1</b> Landcover information</a></li>
+<li class="chapter" data-level="4.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#landcover"><i class="fa fa-check"></i><b>4.1</b> Landcover</a></li>
 <li class="chapter" data-level="4.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#climate"><i class="fa fa-check"></i><b>4.2</b> Climate</a></li>
-<li class="chapter" data-level="4.3" data-path="species-distribution-models.html"><a href="species-distribution-models.html#reporting-regions"><i class="fa fa-check"></i><b>4.3</b> Reporting Regions</a></li>
+<li class="chapter" data-level="4.3" data-path="species-distribution-models.html"><a href="species-distribution-models.html#models"><i class="fa fa-check"></i><b>4.3</b> Models</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#limitations"><i class="fa fa-check"></i><b>4.3.1</b> Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="species-distribution-models.html"><a href="species-distribution-models.html#reporting-regions"><i class="fa fa-check"></i><b>4.4</b> Reporting Regions</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html"><i class="fa fa-check"></i><b>5</b> Boreal Chorus Frog</a>
 <ul>
@@ -192,7 +201,7 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published by ABMI</a></li>
 
 </ul>
 
@@ -245,12 +254,12 @@ div.csl-indent {
 </div>
 <div id="soil-models-3" class="section level2" number="12.4">
 <h2><span class="header-section-number">12.4</span> Soil Models</h2>
-<p>We were able to create a SDM using the soil land cover information with moderate fit (AUC = 0.82). The soil based models predicted higher abundance in loamy, sandy/loamy, and clay soil classes and high abundance in all footprint types. There was a strong positive effect between treedn and non-treed sites.</p>
+<p>We were able to create a SDM using the soil land cover information with moderate fit (AUC = 0.82). The soil based models predicted higher abundance in loamy, sandy/loamy, and clay soil classes and high abundance in all footprint types. There was a strong positive effect between treed and non-treed sites.</p>
 <div class="figure">
 <img src="Amphibians_files/figure-html/coefficients/south/WOFR-combined_2022-01-20.png" alt="" />
 <p class="caption">The predicted relative abundance (bars) of Wood Frog as a function of soil and human footprint types in the prairie region. Black vertical lines represent 90/% confidence intervals. The presence/absence of trees affects the presence and abundance of many species; therefore, separate figures are presented for treed and non-treed sites in the prairie region.</p>
 </div>
-<p>The spatial and climate component indicated negative relationships with longitude and a positive relationship with the amound of open water.</p>
+<p>The spatial and climate component indicated negative relationships with longitude and a positive relationship with the amount of open water.</p>
 <div class="figure">
 <img src="Amphibians_files/figure-html/coefficients/south/WOFR_climate_2022-01-20.png" style="width:60.0%" alt="" />
 <p class="caption">The spatial and climate components from the soil based model for Wood Frog.</p>
@@ -258,8 +267,9 @@ div.csl-indent {
 </div>
 <div id="linear-features-3" class="section level2" number="12.5">
 <h2><span class="header-section-number">12.5</span> Linear Features</h2>
-<p>We estimate the impacts of both soft (e.g., seismic lines) and hard (e.g., roads and rails) linear features by comparing the abundance of a species in a completely native habitat to that which 10% of the area is converted to a linear feature type. The vegetation based models predicted a positive response to both soft and hard linear features (left) while the soil based models predicted a weak positive response for hard linear features and no response to soft linear (right).</p>
-<p><img src="Amphibians_files/figure-html/coefficients/north/WOFR_linear-features_2022-01-20.png" style="width:45.0%" alt="Effects of linear features based on the vegetation models." /> <img src="Amphibians_files/figure-html/coefficients/south/WOFR_linear-features_2022-01-20.png" style="width:45.0%" alt="Effects of linear features based on the soil models." /></p>
+<p>We estimate the impacts of both soft (e.g., seismic lines) and hard (e.g., roads and rails) linear features by comparing the abundance of a species in a completely native habitat to that which 10% of the area is converted to a linear feature type. The vegetation based models predicted a positive response to soft linear features and a slight negative relationship with hard linear features (left). The soil based models predicted a strong positive response for soft linear features and no response to hard linear (right).</p>
+<p>The vegetation based models indicate that Wood Frog increased in all linear feature types. The soil based models also indicated the same pattern except for a slight increase in Energy Soft Linear features.</p>
+<p><img src="Amphibians_files/figure-html/sectoreffects/north/WOFR-linear-features.png" style="width:45.0%" alt="Effects of linear features based on the vegetation models." /> <img src="Amphibians_files/figure-html/sectoreffects/south/WOFR-linear-features.png" style="width:45.0%" alt="Effects of linear features based on the soil models." /></p>
 </div>
 <div id="predicted-abundance-3" class="section level2" number="12.6">
 <h2><span class="header-section-number">12.6</span> Predicted Abundance</h2>
@@ -277,7 +287,7 @@ div.csl-indent {
 <p>Regional sector effects predict the change in the total regional population by industrial sector for species. This incorporates the area of the footprint, the native habitats where the footprint occurs, and the species response to a particular footprint. Regional population effect values less than 0% indicate a predicted decrease in the regional population due to a particular sector’s footprint, and values greater than 0% indicate a predicted increase.</p>
 <div id="forested-region-3" class="section level3" number="12.7.1">
 <h3><span class="header-section-number">12.7.1</span> Forested Region</h3>
-<p>We predict that Wood Frog has local positive response to all sectors within this region. However, this does not translate to the regional effects where we observe small increaes.</p>
+<p>We predict that Wood Frog has local positive response to all sectors within this region. However, this does not translate to the regional effects where we observe small increase.</p>
 <div class="figure">
 <img src="Amphibians_files/figure-html/sectoreffects/north/WOFR.png" alt="" />
 <p class="caption">Regional (left) and local (right) sector effects for Wood Frog within the Forested Region</p>
@@ -357,7 +367,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Amphibian_Monitoring.pdf", "Amphibian_Monitoring.epub"],
+"download": ["Amphibian_Monitoring.pdf"],
 "toc": {
 "collapse": "subsection"
 }

@@ -24,7 +24,7 @@
 <meta name="author" content="Brandon Allen" />
 
 
-<meta name="date" content="2022-01-27" />
+<meta name="date" content="2022-02-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -97,7 +97,12 @@ div.csl-indent {
 <li><a href="./">Amphibian Monitoring</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Summary</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Summary</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i><b>1.1</b> Acknowledgement</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#suggested-citation"><i class="fa fa-check"></i><b>1.2</b> Suggested citation</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.3</b> Contact</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#the-alberta-biodiversity-monitoring-institute"><i class="fa fa-check"></i><b>2.1</b> The Alberta Biodiversity Monitoring Institute</a></li>
@@ -111,9 +116,13 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4" data-path="species-distribution-models.html"><a href="species-distribution-models.html"><i class="fa fa-check"></i><b>4</b> Species Distribution Models</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#landcover-information"><i class="fa fa-check"></i><b>4.1</b> Landcover information</a></li>
+<li class="chapter" data-level="4.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#landcover"><i class="fa fa-check"></i><b>4.1</b> Landcover</a></li>
 <li class="chapter" data-level="4.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#climate"><i class="fa fa-check"></i><b>4.2</b> Climate</a></li>
-<li class="chapter" data-level="4.3" data-path="species-distribution-models.html"><a href="species-distribution-models.html#reporting-regions"><i class="fa fa-check"></i><b>4.3</b> Reporting Regions</a></li>
+<li class="chapter" data-level="4.3" data-path="species-distribution-models.html"><a href="species-distribution-models.html#models"><i class="fa fa-check"></i><b>4.3</b> Models</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#limitations"><i class="fa fa-check"></i><b>4.3.1</b> Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="species-distribution-models.html"><a href="species-distribution-models.html#reporting-regions"><i class="fa fa-check"></i><b>4.4</b> Reporting Regions</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html"><i class="fa fa-check"></i><b>5</b> Boreal Chorus Frog</a>
 <ul>
@@ -192,7 +201,7 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published by ABMI</a></li>
 
 </ul>
 
@@ -258,12 +267,13 @@ div.csl-indent {
 </div>
 <div id="linear-features-1" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> Linear Features</h2>
-<p>We estimate the impacts of both soft (e.g., seismic lines) and hard (e.g., roads and rails) linear features by comparing the abundance of a species in a completely native habitat to that which 10% of the area is converted to a linear feature type. The vegetation based models predicted a no response to both soft and hard linear features (left) while the soil based models predicted a weak negative response for hard linear features and a positive response to soft linear (right).</p>
-<p><img src="Amphibians_files/figure-html/coefficients/north/CATO_linear-features_2022-01-20.png" style="width:45.0%" alt="Species relative abundance predicted for habitat with no human footprint compared to habitat in which 10% of the area is converted to either soft or hard linear footprint." /> <img src="Amphibians_files/figure-html/coefficients/south/CATO_linear-features_2022-01-20.png" style="width:45.0%" alt="Species relative abundance predicted for habitat with no human footprint compared to habitat in which 10% of the area is converted to either soft or hard linear footprint." /></p>
+<p>We estimate the impacts of four types of linear features: Energy seismic lines (wide and narrow), Energy soft linear (transmission lines, pipelines), Hard Linear (roads and rails), Transportation soft linear (road verges). We predict the change to species relative abundance inside areas that have been disturbed by each linear feature class compared to the habitat it replaced (modeled reference condition with no human footprint). Effects less than 0% indicate habitat suitability is reduced (predicted related abundance is lower) compared to reference conditions, and values more than 0% indicate habitat suitability is improved (predicted relative abundance is higher) compared to reference conditions.</p>
+<p>The vegetation based models indicate that Canadian Toad decreased in energy based linear features, while increasing in both hard and soft linear features based on transportation. However, based on the soil models, Canadian Toad was predicted to increase in soft linear features, while decrease in hard linear features.</p>
+<p><img src="Amphibians_files/figure-html/sectoreffects/north/CATO-linear-features.png" style="width:45.0%" alt="Species relative abundance predicted for habitat with no human footprint compared to habitat in which 10% of the area is converted to either soft or hard linear footprint." /> <img src="Amphibians_files/figure-html/sectoreffects/south/CATO-linear-features.png" style="width:45.0%" alt="Species relative abundance predicted for habitat with no human footprint compared to habitat in which 10% of the area is converted to either soft or hard linear footprint." /></p>
 </div>
 <div id="predicted-abundance-1" class="section level2" number="6.6">
 <h2><span class="header-section-number">6.6</span> Predicted Abundance</h2>
-<p>Under borth reference (left) and current (right) condition, Canadian Toad is predicted to have moderate abundance throughout the eastern portion of Alberta.</p>
+<p>Under both reference (left) and current (right) condition, Canadian Toad is predicted to have moderate abundance throughout the eastern portion of Alberta.</p>
 <p><img src="Amphibians_files/figure-html/maps/CATO_reference-abundance_2022-01-20.png" style="width:45.0%" alt="The predicted relative abundance of Canadian Toad as a function of vegetation, soil, human footprint, and space/cliamte across Alberta under reference conditions." /><img src="Amphibians_files/figure-html/maps/CATO_current-abundance_2022-01-20.png" style="width:45.0%" alt="The predicted relative abundance of Canadian Toad as a function of vegetation, soil, human footprint, and space/cliamte across Alberta under current conditions (2018)." /></p>
 <p>We predicted decreases in suitable habitat for Canadian Toad throughout the eastern portion of the Grasslands natural region. This is driven by our models predicting low abundance in agricultural footprint types.</p>
 <div class="figure">
@@ -285,7 +295,7 @@ div.csl-indent {
 </div>
 <div id="prairie-region-1" class="section level3" number="6.7.2">
 <h3><span class="header-section-number">6.7.2</span> Prairie Region</h3>
-<p>We predict that Canadian Toad has local negative response to agriculture, forestry, and urban industrial footprint in this region. There is a positive local response to the energy and transportation sectors. However, we only observed a large negative response at the regional scale driven by agriculture that outweights the positive effects of the energy and transportation sectors.</p>
+<p>We predict that Canadian Toad has local negative response to agriculture, forestry, and urban industrial footprint in this region. There is a positive local response to the energy and transportation sectors. However, we only observed a large negative response at the regional scale driven by agriculture that outweighs the positive effects of the energy and transportation sectors.</p>
 <div class="figure">
 <img src="Amphibians_files/figure-html/sectoreffects/south/CATO.png" alt="" />
 <p class="caption">Regional (left) and local (right) sector effects for Boreal Chorus Frog within the Prairie Region</p>
@@ -343,7 +353,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Amphibian_Monitoring.pdf", "Amphibian_Monitoring.epub"],
+"download": ["Amphibian_Monitoring.pdf"],
 "toc": {
 "collapse": "subsection"
 }

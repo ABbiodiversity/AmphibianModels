@@ -1,6 +1,9 @@
 tab:landcover
 tab:climate
 summary
+acknowledgement
+suggested-citation
+contact
 introduction
 the-alberta-biodiversity-monitoring-institute
 amphibians-101
@@ -9,8 +12,10 @@ data-collection
 aru-deployments
 processing-of-vocalization-events
 species-distribution-models
-landcover-information
+landcover
 climate
+models
+limitations
 reporting-regions
 boreal-chorus-frog
 distribution
