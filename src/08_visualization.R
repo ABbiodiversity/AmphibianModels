@@ -824,3 +824,139 @@ for (name.id in names(results.file)) {
     
     
 }
+
+###################
+# Linear Features #
+###################~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#
+# Visualize boundaries
+#
+
+rm(list=ls())
+gc()
+
+library(abmi.themes)
+library(ggnewscale)
+library(ggplot2)
+library(ggpubr)
+library(raster)
+library(sf)
+library(tidyverse)
+
+# Add fonts
+add_abmi_fonts()
+
+#
+# Visualize sector effects
+#
+
+load("results/tables/sectoreffects/regional-linear-features_HFI2018_2022-02-01.Rdata")
+
+############
+# Forested #
+############
+
+# Filter for species predicted as TRUE
+species.subset <- regional.results$North
+
+# Creation of the data frame required for sector effect plotting
+region.se <- data.frame(SpeciesID = rep(species.subset$SpeciesID, 4), 
+                        Sector = c(rep("Energy Seismic", nrow(species.subset)), rep("Energy Soft", nrow(species.subset)), rep("Hard", nrow(species.subset)), rep("Transportation Soft", nrow(species.subset))),
+                        UnderHF = c(species.subset$UnderHF_EnSeismic, species.subset$UnderHF_EnSoftLin, species.subset$UnderHF_HardLin, species.subset$UnderHF_TrSoftLin))
+
+# Need to do a check for the NA values or sector effects over 100%
+region.se[is.na(region.se)] <- 0
+region.se$Sector  <- factor(region.se$Sector, levels = c("Energy Seismic", "Energy Soft", "Hard", "Transportation Soft"))
+region.se$UnderHF[region.se$UnderHF > 100] <- 100
+
+# Sector effect colors
+colour.pal <- c("#802417", "#e8b960", "#646e3b", "#17486f")
+
+for (species in unique(region.se$SpeciesID)) {
+    
+    # Subset species
+    species.subset <- region.se[region.se$SpeciesID == species, ]
+    
+    # Only report on the under footprint
+    under.hf <- ggplot(data = species.subset, aes(x = Sector, y = UnderHF, fill = Sector)) +
+        geom_bar(stat = "identity", fill = colour.pal, color = "#000000") +
+        guides(scale = "none") + 
+        labs(x = "Linear Features", y = "Under Footprint Sector Effect (%)") +
+        scale_y_continuous(limits = c(-100, 100),
+                           labels = c(-100, -50, 0, 50, 100)) +
+        theme_light() +
+        theme_abmi(font = "Montserrat") +
+        theme(axis.title = element_text(size=36),
+              axis.text.x = element_text(size=36, angle = 90, hjust = 1),
+              axis.text.y = element_text(size=36),
+              title = element_text(size=36),
+              legend.text = element_text(size=36),
+              legend.title = element_blank(),
+              axis.line = element_line(colour = "black"),
+              panel.border = element_rect(colour = "black", fill=NA, size=1))
+    
+    png(paste0("results/figures/sectoreffects/north/", species, "-linear-features.png"),
+        height = 1800,
+        width = 1800,
+        res = 300)
+    
+    print(under.hf)
+    
+    dev.off()
+    
+}
+
+###########
+# Prairie #
+###########
+
+# Filter for species predicted as TRUE
+species.subset <- regional.results$South
+
+# Creation of the data frame required for sector effect plotting
+region.se <- data.frame(SpeciesID = rep(species.subset$SpeciesID, 4), 
+                        Sector = c(rep("Energy Seismic", nrow(species.subset)), rep("Energy Soft", nrow(species.subset)), rep("Hard", nrow(species.subset)), rep("Transportation Soft", nrow(species.subset))),
+                        UnderHF = c(species.subset$UnderHF_EnSeismic, species.subset$UnderHF_EnSoftLin, species.subset$UnderHF_HardLin, species.subset$UnderHF_TrSoftLin))
+
+# Need to do a check for the NA values or sector effects over 100%
+region.se[is.na(region.se)] <- 0
+region.se$Sector  <- factor(region.se$Sector, levels = c("Energy Seismic", "Energy Soft", "Hard", "Transportation Soft"))
+region.se$UnderHF[region.se$UnderHF > 100] <- 100
+
+# Sector effect colors
+colour.pal <- c("#802417", "#e8b960", "#646e3b", "#17486f")
+
+for (species in unique(region.se$SpeciesID)) {
+    
+    # Subset species
+    species.subset <- region.se[region.se$SpeciesID == species, ]
+    
+    # Only report on the under footprint
+    under.hf <- ggplot(data = species.subset, aes(x = Sector, y = UnderHF, fill = Sector)) +
+        geom_bar(stat = "identity", fill = colour.pal, color = "#000000") +
+        guides(scale = "none") + 
+        labs(x = "Sectors", y = "Under Footprint Sector Effect (%)") +
+        scale_y_continuous(limits = c(-100, 100),
+                           labels = c(-100, -50, 0, 50, 100)) +
+        theme_light() +
+        theme_abmi(font = "Montserrat") +
+        theme(axis.title = element_text(size=36),
+              axis.text.x = element_text(size=36, angle = 90, hjust = 1),
+              axis.text.y = element_text(size=36),
+              title = element_text(size=36),
+              legend.text = element_text(size=36),
+              legend.title = element_blank(),
+              axis.line = element_line(colour = "black"),
+              panel.border = element_rect(colour = "black", fill=NA, size=1))
+    
+    png(paste0("results/figures/sectoreffects/south/", species, "-linear-features.png"),
+        height = 1800,
+        width = 1800,
+        res = 300)
+    
+    print(under.hf)
+    
+    dev.off()
+    
+}

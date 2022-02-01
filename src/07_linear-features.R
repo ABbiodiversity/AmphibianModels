@@ -1,10 +1,10 @@
 #
-# Title: Prediction calculation script
+# Title: Prediction of linear features
 # Created: February 12th, 2020
 # Last Updated: February 1st, 2022
 # Author: Brandon Allen
-# Objectives: Calculate provincial predictions for each validated model
-# Keywords: 
+# Objectives: Calculate provincial predictions for the linear features estimates
+# Keywords: Transition Matrix, Species Predictions, Summaries
 # Notes: 1) The landcover coefficients need to be backtransformed binomial()$linkfun in order to proper predictions
 
 #####################
@@ -347,6 +347,23 @@ vegcur <- list()
 soilref <- list()
 soilcur <- list()
 
+# Update the sectors for each feature type
+chVeg$sector_use <- as.character(chVeg$sector_use)
+chVeg$sector_use[chVeg$sector_use != "Native"] <- "Footprint"
+chVeg$sector_use[chVeg$cr2 == "HardLin"] <- "HardLin"
+chVeg$sector_use[chVeg$cr2 == "TrSoftLin"] <- "TrSoftLin"
+chVeg$sector_use[chVeg$cr2 == "EnSeismic"] <- "EnSeismic"
+chVeg$sector_use[chVeg$cr2 == "EnSoftLin"] <- "EnSoftLin"
+chVeg$sector_use <- factor(chVeg$sector_use)
+
+chSoil$sector_use <- as.character(chSoil$sector_use)
+chSoil$sector_use[chSoil$sector_use != "Native"] <- "Footprint"
+chSoil$sector_use[chSoil$cr2 == "HardLin"] <- "HardLin"
+chSoil$sector_use[chSoil$cr2 == "TrSoftLin"] <- "TrSoftLin"
+chSoil$sector_use[chSoil$cr2 == "EnSeismic"] <- "EnSeismic"
+chSoil$sector_use[chSoil$cr2 == "EnSoftLin"] <- "EnSoftLin"
+chSoil$sector_use <- factor(chSoil$sector_use)
+
 # Remove unessecary levels
 chVeg <- droplevels(chVeg)
 chSoil <- droplevels(chSoil)
@@ -374,74 +391,19 @@ for (i in levels(chSoil$sector_use)) {
 
 rm(trSoil, trVeg)
 
-# This is a template for storing predictions before summing
+# Create template for storing predictions
 north.template <- matrix(data = NA, nrow = nrow(vegref[[1]]),
-                         ncol = 14, 
+                         ncol = length(names(vegref)) * 2, 
                          dimnames = list(rownames(vegref[[1]]),
-                                         c("Cur_Agriculture", "Ref_Agriculture",
-                                           "Cur_Energy", "Ref_Energy",
-                                           "Cur_Forestry", "Ref_Forestry",
-                                           "Cur_Misc", "Ref_Misc",
-                                           "Cur_RuralUrban", "Ref_RuralUrban",
-                                           "Cur_Transportation", "Ref_Transportation",
-                                           "Cur_Native", "Ref_Native")))
+                                         c(paste0("Cur_", names(vegref)),
+                                           paste0("Ref_", names(vegref)))))
 
 # This is a template for storing predictions before summing
 south.template <- matrix(data = NA, nrow = nrow(soilref[[1]]),
-                         ncol = 14, 
+                         ncol = length(names(soilref)) * 2, 
                          dimnames = list(rownames(soilref[[1]]),
-                                         c("Cur_Agriculture", "Ref_Agriculture",
-                                           "Cur_Energy", "Ref_Energy",
-                                           "Cur_Forestry", "Ref_Forestry",
-                                           "Cur_Misc", "Ref_Misc",
-                                           "Cur_RuralUrban", "Ref_RuralUrban",
-                                           "Cur_Transportation", "Ref_Transportation",
-                                           "Cur_Native", "Ref_Native")))
-
-# Template for the areas
-area.north <- matrix(data = NA, nrow = nrow(vegref[[1]]),
-                     ncol = 7, 
-                     dimnames = list(rownames(vegref[[1]]),
-                                     c("Area_Agriculture",
-                                       "Area_Energy",
-                                       "Area_Forestry", 
-                                       "Area_Misc",
-                                       "Area_RuralUrban",
-                                       "Area_Transportation", 
-                                       "Area_Native")))
-
-area.south <- matrix(data = NA, nrow = nrow(soilref[[1]]),
-                     ncol = 7, 
-                     dimnames = list(rownames(soilref[[1]]),
-                                     c("Area_Agriculture",
-                                       "Area_Energy",
-                                       "Area_Forestry", 
-                                       "Area_Misc",
-                                       "Area_RuralUrban",
-                                       "Area_Transportation", 
-                                       "Area_Native")))
-
-# Calculate the areas of each sector by cell
-for (i in levels(chVeg$sector)) {
-        
-        area.north[, paste0("Area_", i)] <- rowSums(vegcur[[i]])
-        
-}
-
-for (i in levels(chSoil$sector)) {
-        
-        area.south[, paste0("Area_", i)] <- rowSums(soilcur[[i]])
-        
-}
-
-# Subset south to the Grassland
-area.south <- area.south[rownames(kgrid)[kgrid$NRNAME == "Grassland"], ]
-
-# Merge the areas and save
-area.sector <- rbind(area.north, area.south)
-save(area.sector, file = paste0("data/processed/predictions/areas/sector-effect-areas_2021-01-12.Rdata"))
-
-rm(area.south, area.sector, area.north)
+                                         c(paste0("Cur_", names(soilref)),
+                                           paste0("Ref_", names(soilref)))))
 
 #######################
 # Species Predictions #
@@ -505,7 +467,7 @@ for (spp in SPP) {
                 
                 muspa <- kgrid[!kgrid$useN, "pAspen"] * bspa
                 
-                for (i in levels(chSoil$sector)) {
+                for (i in levels(chSoil$sector_use)) {
                         
                         ## south calculations for the i'th run
                         bscr <- link.fun(cfs$landscape.coef[1, colnames(soilcur[[i]])]) # current land cover
@@ -526,9 +488,6 @@ for (spp in SPP) {
                         
                 }
                 
-                # Adjust Forestry to 0
-                south.sector[, c("Cur_Forestry", "Ref_Forestry")] <- 0
-                
         } else {
                 
                 south.sector <- NULL
@@ -548,7 +507,7 @@ for (spp in SPP) {
                 ## additive components for north
                 muncl <- drop(XclimN %*% bncl)
                 
-                for (i in levels(chVeg$sector)) {
+                for (i in levels(chVeg$sector_use)) {
                         
                         ## north calculations for the i'th run
                         bncr <- link.fun(cfn$landscape.coef[1, colnames(vegcur[[i]])]) # current land cover
@@ -575,13 +534,63 @@ for (spp in SPP) {
         
        
         save(north.sector, south.sector, 
-             file=file.path(paste0("data/processed/predictions/sectoreffects/", spp, ".RData")))
+             file=file.path(paste0("data/processed/predictions/linearfeatures/", spp, ".RData")))
         
         rm(south.sector, north.sector)
         
 }
 
+#############
+# Summaries # 
+#############~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Clear memory
 rm(list=ls())
 gc()
 
+# Load functions
+source("src/intactness-calculation_functions.R")
 
+# Load the kgrid for Reporting Regions
+load("data/base/kgrid/kgrid_table_km.Rdata")
+
+kgrid <- kgrid[, c(1:8)]
+kgrid$LinkID <- as.character(kgrid$Row_Col)
+
+# Load the kgrid and define the reporting regions
+kgrid$Regions <- ifelse(kgrid$NR %in% c("Boreal", "Foothills", "Canadian Shield", "Rocky Mountain") |
+                                kgrid$NSR == "Dry Mixedwood", "Forested", "Prairie")
+kgrid$Regions[kgrid$NSR == "Dry Mixedwood" & kgrid$Lat <= 56.7] <- "Prairie"
+kgrid$Regions[kgrid$NSR == "Montane" & kgrid$Long > -114] <- "Prairie"
+
+# Create thresholds
+occ.threshold <- 0.01
+
+# Create species list
+se.2018.path <- c(list.files("data/processed/predictions/linearfeatures/", full.names = TRUE))
+
+species.names  <- c(list.files("data/processed/predictions/linearfeatures/", full.names = FALSE))
+
+species.names <- gsub(".RData", "", species.names)
+
+# Create species lookup table
+species.status <- data.frame(SpeciesID = species.names,
+                             Taxon = "Amphibians",
+                             ScientificName = c("Pseudacris maculata", "Anaxyrus hemiophrys",
+                                                "Anaxyrus boreas", "Lithobates sylvaticus"),
+                             CommonName = c("Boreal Chorus Frog", "Canadian Toad",
+                                            "Western Toad", "Wood Frog"),
+                             Genus = "Species",
+                             Model_north = TRUE,
+                             Model_south = TRUE,
+                             ExpertInclusion = TRUE)
+
+# Regional summary
+regional.results <- regional_reports(species.list = se.2018.path,
+                                     species.lookup = species.status,
+                                     summary.region = kgrid)
+
+save(regional.results, file = "results/tables/sectoreffects/regional-linear-features_HFI2018_2022-02-01.Rdata")
+
+rm(list=ls())
+gc()
