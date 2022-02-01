@@ -3,7 +3,6 @@ tab:climate
 summary
 acknowledgement
 suggested-citation
-contact
 introduction
 the-alberta-biodiversity-monitoring-institute
 amphibians-101
