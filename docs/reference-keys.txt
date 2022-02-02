@@ -1,4 +1,3 @@
-tab:landcover
 tab:climate
 summary
 acknowledgement
@@ -11,7 +10,9 @@ data-collection
 aru-deployments
 processing-of-vocalization-events
 species-distribution-models
-landcover
+vegetation
+soil
+human-footprint
 climate
 models
 limitations

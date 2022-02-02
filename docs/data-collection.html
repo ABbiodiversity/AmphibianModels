@@ -24,7 +24,7 @@
 <meta name="author" content="Brandon Allen" />
 
 
-<meta name="date" content="2022-02-01" />
+<meta name="date" content="2022-02-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -115,13 +115,15 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4" data-path="species-distribution-models.html"><a href="species-distribution-models.html"><i class="fa fa-check"></i><b>4</b> Species Distribution Models</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#landcover"><i class="fa fa-check"></i><b>4.1</b> Landcover</a></li>
-<li class="chapter" data-level="4.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#climate"><i class="fa fa-check"></i><b>4.2</b> Climate</a></li>
-<li class="chapter" data-level="4.3" data-path="species-distribution-models.html"><a href="species-distribution-models.html#models"><i class="fa fa-check"></i><b>4.3</b> Models</a>
+<li class="chapter" data-level="4.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#vegetation"><i class="fa fa-check"></i><b>4.1</b> Vegetation</a></li>
+<li class="chapter" data-level="4.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#soil"><i class="fa fa-check"></i><b>4.2</b> Soil</a></li>
+<li class="chapter" data-level="4.3" data-path="species-distribution-models.html"><a href="species-distribution-models.html#human-footprint"><i class="fa fa-check"></i><b>4.3</b> Human Footprint</a></li>
+<li class="chapter" data-level="4.4" data-path="species-distribution-models.html"><a href="species-distribution-models.html#climate"><i class="fa fa-check"></i><b>4.4</b> Climate</a></li>
+<li class="chapter" data-level="4.5" data-path="species-distribution-models.html"><a href="species-distribution-models.html#models"><i class="fa fa-check"></i><b>4.5</b> Models</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#limitations"><i class="fa fa-check"></i><b>4.3.1</b> Limitations</a></li>
+<li class="chapter" data-level="4.5.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#limitations"><i class="fa fa-check"></i><b>4.5.1</b> Limitations</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="species-distribution-models.html"><a href="species-distribution-models.html#reporting-regions"><i class="fa fa-check"></i><b>4.4</b> Reporting Regions</a></li>
+<li class="chapter" data-level="4.6" data-path="species-distribution-models.html"><a href="species-distribution-models.html#reporting-regions"><i class="fa fa-check"></i><b>4.6</b> Reporting Regions</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="boreal-chorus-frog.html"><a href="boreal-chorus-frog.html"><i class="fa fa-check"></i><b>5</b> Boreal Chorus Frog</a>
 <ul>
@@ -223,12 +225,12 @@ div.csl-indent {
 <h1><span class="header-section-number">3</span> Data Collection</h1>
 <div id="aru-deployments" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> ARU Deployments</h2>
-<p>The ARU data used to construct these our Species Distribution Models (SDM) have come from the following ABMI surveys; Ecosystem Health sites (2015-2021); Adopt-a-Camera/ARU (2017); Citizen Science ARU (2016); Edge-Interior (2017); Northern Focal Areas (2019-2020); Southern Focal Areas (2020); Amphibian Monitoring (2020); and Operation Grassland (2015). Across the years, there were 3303 unique surveys completed.</p>
+<p>The ARU data used to construct our Species Distribution Models (SDM) have come from the following ABMI surveys; Ecosystem Health sites (2015-2021); Adopt-a-Camera/ARU (2017); Citizen Science ARU (2016); Edge-Interior (2017); Northern Focal Areas (2019-2020); Southern Focal Areas (2020); Amphibian Monitoring (2020); and Operation Grassland (2015). Across the years, there were 3303 unique sampling events.</p>
 <div class="figure">
 <img src="Amphibians_files/figure-html/occurrence/ABMI-sampling-grid_2022-01-20.png" style="width:80.0%" alt="" />
 <p class="caption">ARU surveyes conducted by the ABMI between 2015-2021.</p>
 </div>
-<p>We also compiled data from the Bioacoustic Units Wetlands surveys (2013-2019). Across the years, there were 1324 unique surveys completed.
+<p>We also compiled data from the Bioacoustic Units Wetlands surveys (2013-2019). Across the years, there were 1324 unique sampling events.
 <img src="Amphibians_files/figure-html/occurrence/BU-sampling-grid_2022-01-20.png" style="width:80.0%" alt="ARU surveyes conducted by the BU between 2013-2019." /></p>
 </div>
 <div id="processing-of-vocalization-events" class="section level2" number="3.2">
@@ -238,11 +240,10 @@ div.csl-indent {
 <li>Only observations detected within the first minute of recordings was used.</li>
 <li>Recordings with high levels of noises due to precipitation, wind conditions, or industrial and background activity were excluded permitting this metadata was available.</li>
 <li>To replicate the conditions of a midnight survey, we filtered for recording events between 23:30-02:30 hours. We acknowledge that this survey interval may not be optimal for all vocalizing amphibians. Therefore, the calling phenology of each species will be investigated once sufficient data is available.</li>
-<li>Only species that occurred at greater than 20 ARUs were maintained for analysis.</li>
-<li>For all species with sufficient data, we assessed the seasonality window of calls by aggregating the percentage of detections across ARUs by Julian calendar day.</li>
+<li>For all species with sufficient data (greater than 20 detections), we assessed the seasonality window of calls by aggregating the percentage of detections across ARUs by Julian calendar day.</li>
 <li>Local temperature during the recording event and Julian calendar day was used to account for the variation in detectability throughout the survey window.</li>
 </ul>
-<p>After cleaning the data, there were 12330 unique recordings used for creating SDMs based on vegetation data (Boreal, Foothills, Canadian Shield, Rocky Mountain, and Parkland natural regions), and 4396 unique recordings used for creating SDMs based on soil data (Parkland and Grassland natural regions).</p>
+<p>After cleaning the data, there were 14,336 unique recordings used for creating our species models.</p>
 
 </div>
 </div>
