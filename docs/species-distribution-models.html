@@ -24,7 +24,7 @@
 <meta name="author" content="Brandon Allen" />
 
 
-<meta name="date" content="2022-02-02" />
+<meta name="date" content="2022-02-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -101,6 +101,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i><b>1.1</b> Acknowledgement</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#suggested-citation"><i class="fa fa-check"></i><b>1.2</b> Suggested citation</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.3</b> Contact</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -121,7 +122,8 @@ div.csl-indent {
 <li class="chapter" data-level="4.4" data-path="species-distribution-models.html"><a href="species-distribution-models.html#climate"><i class="fa fa-check"></i><b>4.4</b> Climate</a></li>
 <li class="chapter" data-level="4.5" data-path="species-distribution-models.html"><a href="species-distribution-models.html#models"><i class="fa fa-check"></i><b>4.5</b> Models</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#limitations"><i class="fa fa-check"></i><b>4.5.1</b> Limitations</a></li>
+<li class="chapter" data-level="4.5.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#overlap-region"><i class="fa fa-check"></i><b>4.5.1</b> Overlap Region</a></li>
+<li class="chapter" data-level="4.5.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#limitations"><i class="fa fa-check"></i><b>4.5.2</b> Limitations</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="species-distribution-models.html"><a href="species-distribution-models.html#reporting-regions"><i class="fa fa-check"></i><b>4.6</b> Reporting Regions</a></li>
 </ul></li>
@@ -371,8 +373,25 @@ Probability of Aspen
 <div id="models" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Models</h2>
 <p>Species distribution models (SDM) were created for all species which were detected at a minimum of 20 ARUs within the analysis region (vegetation or soil) using a model selection framework <span class="citation"><a href="#ref-AlbertaBiodiversityMonitoringInstitute2015" role="doc-biblioref">Alberta Biodiversity Monitoring Institute</a> (<a href="#ref-AlbertaBiodiversityMonitoringInstitute2015" role="doc-biblioref">2015</a>)</span>. We created a set of statistical models (binomial generalized linear models) to relate the relative abundance (presence/absence) of each species to two sets of variables: landcover (vegetation/soil and human footprint) and climate (climate normals and spatial location). This framework allowed us to create models for a large number of species while selecting models for each species that are only as complex as the data supports. For example, the models for a rarer species with few records may not be able to separate different age classes or even broad stand types. In these cases, all age classes or several stand types therefore have the same average value in the resulting habitat model. We assessed model fit using AUC and only present species models with at least moderative predictive ability (AUC &gt; 0.7).</p>
-<div id="limitations" class="section level3" number="4.5.1">
-<h3><span class="header-section-number">4.5.1</span> Limitations</h3>
+<div id="overlap-region" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Overlap Region</h3>
+<p>For species with both vegetation and soil based models, we weight the predictions in regions where either model would be suitable (i.e., Parkland and Dry mixedwood). This weight is based on the probability an area support trees (pAspen), the amount of unknown soil (pSoil), and the amount of treed areas (pFor).</p>
+<p align="center">
+<span class="math inline">\(North weight = pAspen / (pAspen - (1-pFor))\)</span>
+<span class="math inline">\(South weight = (1-pAspen) * (1-pSoil) * (1-pFor)\)</span>
+</p>
+<p>We then rescale the two weights so <span class="math inline">\(South weight = North weight - 1\)</span>.</p>
+<p align="center">
+<span class="math inline">\(North weight = North weight / (North weight + South weight)\)</span>
+<span class="math inline">\(South weight = South weight / (North weight + South weight)\)</span>
+</p>
+<div class="figure">
+<img src="Amphibians_files/figure-html/sectoreffects/prediction-overlap_2022-02-08.png" style="width:80.0%" alt="" />
+<p class="caption">Distribution of weights used for averaging predictions created from the vegetation and soil based models.</p>
+</div>
+</div>
+<div id="limitations" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Limitations</h3>
 <p><strong>The explanatory variables are confounded.</strong> We have limited ability to separate the effects of each vegetation and human footprint type, and spatial and climate variables. In addition to the challenges generating uncertainty in the individual values, ABMI is not an experimental study. We do not design and manipulate habitat and human footprint types, and simply use what is sampled in the province. As a result, habitat and human footprint types are partially confounded with geographic location and climate variables. Our modeling separate out these effects as best as possible, but without impossible province-wide experiments, we can never be sure how well we have estimated the separate habitat, human footprint and geographic/climate effects.</p>
 <p><strong>We use the same model set for all species.</strong> Our model selection approach weights different models in a model set based on the support provided by each species’ data. However, we use the same set of models for all species. We currently do not have the resources to develop separate model sets for individual species to benefit from the differences in natural history.</p>
 <p><strong>There are errors in species identification.</strong> Vocalization events from amphibians can be misidentified due to low volume or similarity in species calls. These misidentifications can reduce the accuracy of our models.</p>
@@ -462,6 +481,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

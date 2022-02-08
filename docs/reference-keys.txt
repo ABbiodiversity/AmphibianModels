@@ -2,6 +2,7 @@ tab:climate
 summary
 acknowledgement
 suggested-citation
+contact
 introduction
 the-alberta-biodiversity-monitoring-institute
 amphibians-101
@@ -15,6 +16,7 @@ soil
 human-footprint
 climate
 models
+overlap-region
 limitations
 reporting-regions
 boreal-chorus-frog
