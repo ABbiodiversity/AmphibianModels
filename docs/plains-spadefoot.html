@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10 Plains Spadefoot | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada</title>
   <meta name="description" content="Technical documentation describing the ABMI amphibian species models." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10 Plains Spadefoot | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Brandon Allen" />
 
 
-<meta name="date" content="2022-02-08" />
+<meta name="date" content="2022-02-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="northern-leopard-frog.html"/>
 <link rel="next" href="western-toad.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -120,7 +120,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#soil"><i class="fa fa-check"></i><b>4.2</b> Soil</a></li>
 <li class="chapter" data-level="4.3" data-path="species-distribution-models.html"><a href="species-distribution-models.html#human-footprint"><i class="fa fa-check"></i><b>4.3</b> Human Footprint</a></li>
 <li class="chapter" data-level="4.4" data-path="species-distribution-models.html"><a href="species-distribution-models.html#climate"><i class="fa fa-check"></i><b>4.4</b> Climate</a></li>
-<li class="chapter" data-level="4.5" data-path="species-distribution-models.html"><a href="species-distribution-models.html#models"><i class="fa fa-check"></i><b>4.5</b> Models</a>
+<li class="chapter" data-level="4.5" data-path="species-distribution-models.html"><a href="species-distribution-models.html#species-models"><i class="fa fa-check"></i><b>4.5</b> Species models</a>
 <ul>
 <li class="chapter" data-level="4.5.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#overlap-region"><i class="fa fa-check"></i><b>4.5.1</b> Overlap Region</a></li>
 <li class="chapter" data-level="4.5.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#limitations"><i class="fa fa-check"></i><b>4.5.2</b> Limitations</a></li>
@@ -204,7 +204,7 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published by ABMI</a></li>
+<li><a href="https://github.com/ABbiodiversity" target="blank">Published by ABMI</a></li>
 
 </ul>
 
@@ -229,18 +229,22 @@ div.csl-indent {
 <div id="distribution-5" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> Distribution</h2>
 <p>The Plains Spadefoot was rare in our data set and detected at 11 of 1648 survey locations. All observations were found in the Grasslands natural region.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/occurrence/PLSP-sampling_2022-01-20.png" style="width:80.0%" alt="" />
 <p class="caption">The occurrence of Plains Spadefoot detected between 2013-2021 at ABMI and BU locations.</p>
 </div>
+</center>
 </div>
 <div id="seasonality-5" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Seasonality</h2>
 <p>As we have so few detections of this species, we are unable to determine an optimal survey period based on our data alone. Of the twenty-nine unique recordings collected, we observed Plains Spadefoot between early May and late July.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/seasonality/all/PLSP-seasonality_2022-01-20.png" style="width:80.0%" alt="" />
 <p class="caption">The frequency of detections across sites aggregated by Julian calendar day.</p>
 </div>
+</center>
 
 </div>
 </div>
@@ -254,7 +258,6 @@ div.csl-indent {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -293,7 +296,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Amphibian_Monitoring.pdf"],
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

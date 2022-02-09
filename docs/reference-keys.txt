@@ -15,7 +15,7 @@ vegetation
 soil
 human-footprint
 climate
-models
+species-models
 overlap-region
 limitations
 reporting-regions

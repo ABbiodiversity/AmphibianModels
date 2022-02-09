@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Boreal Chorus Frog | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada</title>
   <meta name="description" content="Technical documentation describing the ABMI amphibian species models." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Boreal Chorus Frog | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Brandon Allen" />
 
 
-<meta name="date" content="2022-02-08" />
+<meta name="date" content="2022-02-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="species-distribution-models.html"/>
 <link rel="next" href="canadian-toad.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -120,7 +120,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#soil"><i class="fa fa-check"></i><b>4.2</b> Soil</a></li>
 <li class="chapter" data-level="4.3" data-path="species-distribution-models.html"><a href="species-distribution-models.html#human-footprint"><i class="fa fa-check"></i><b>4.3</b> Human Footprint</a></li>
 <li class="chapter" data-level="4.4" data-path="species-distribution-models.html"><a href="species-distribution-models.html#climate"><i class="fa fa-check"></i><b>4.4</b> Climate</a></li>
-<li class="chapter" data-level="4.5" data-path="species-distribution-models.html"><a href="species-distribution-models.html#models"><i class="fa fa-check"></i><b>4.5</b> Models</a>
+<li class="chapter" data-level="4.5" data-path="species-distribution-models.html"><a href="species-distribution-models.html#species-models"><i class="fa fa-check"></i><b>4.5</b> Species models</a>
 <ul>
 <li class="chapter" data-level="4.5.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#overlap-region"><i class="fa fa-check"></i><b>4.5.1</b> Overlap Region</a></li>
 <li class="chapter" data-level="4.5.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#limitations"><i class="fa fa-check"></i><b>4.5.2</b> Limitations</a></li>
@@ -204,7 +204,7 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published by ABMI</a></li>
+<li><a href="https://github.com/ABbiodiversity" target="blank">Published by ABMI</a></li>
 
 </ul>
 
@@ -229,60 +229,78 @@ div.csl-indent {
 <div id="distribution" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Distribution</h2>
 <p>The Boreal Chorus Frog was very abundant in our data set and was detected at 68.6% of 1648 survey locations.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/occurrence/BCFR-sampling_2022-01-20.png" style="width:80.0%" alt="" />
 <p class="caption">The occurrence of Boreal Chorus Frog detected between 2013-2021 at ABMI and BU locations.</p>
 </div>
+</center>
 </div>
 <div id="seasonality" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Seasonality</h2>
 <p>With 4543 unique recordings of Boreal Chorus Frog, we were able to determine an optimal survey period. This species was vocalizing between early April to early July, with a peak calling frequency in mid May.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/seasonality/all/BCFR-seasonality_2022-01-20.png" alt="" />
 <p class="caption">The frequency of detections across sites aggregated by Julian calendar day.</p>
 </div>
+</center>
 </div>
 <div id="vegetation-models" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Vegetation Models</h2>
 <p>We were able to create a SDM using the vegetation land cover information with good fit (AUC = 0.81). The vegetation based model indicated that this species is predicted to have high abundance in native wetland (bogs, fens, swamps) and open upland (grass, shrub) habitats in addition to high abundance in crops, rough pasture, tame pasture, cut-blocks, and urban industrial footprints.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/coefficients/north/BCFR_2022-01-20.png" alt="" />
 <p class="caption">The predicted relative abundance (bars) of Boreal Chorus Frog as a function of vegetation and human footprint types in the forested region. Black vertical lines represent 90/% confidence intervals and blue vertical lines are added to forest types where harvesting occurs and shows the predicted species abundance in cut-blocks of various ages.</p>
 </div>
+</center>
 <p>The spatial and climate component indicated positive relationships with Mean Warm Month Temperature and a non-linear relationship with the amount of open water.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/coefficients/north/BCFR_climate_2022-01-20.png" style="width:60.0%" alt="" />
 <p class="caption">The spatial and climate components from the vegetation based model for Boreal Chorus Frog.</p>
 </div>
+</center>
 </div>
 <div id="soil-models" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Soil Models</h2>
 <p>We were able to create a SDM using the soil land cover information with moderate fit (AUC = 0.77). The soil based models predicted similar levels of abundance in all native and human footprint landcover types. There was minimal effect between treed and non-treed sites.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/coefficients/south/BCFR-combined_2022-01-20.png" alt="" />
 <p class="caption">The predicted relative abundance (bars) of Boreal Chorus Frog as a function of soil and human footprint types in the prairie region. Black vertical lines represent 90/% confidence intervals. The presence/absence of trees affects the presence and abundance of many species; therefore, separate figures are presented for treed and non-treed sites in the prairie region.</p>
 </div>
+</center>
 <p>The spatial and climate component indicated positive relationships with Mean Warm Month Temperature and latitude, a non-linear relationship with the amount of open water, and a negative relationship with longitude.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/coefficients/south/BCFR_climate_2022-01-20.png" style="width:60.0%" alt="" />
 <p class="caption">The spatial and climate components from the soil based model for Boreal Chorus Frog.</p>
 </div>
+</center>
 </div>
 <div id="linear-features" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Linear Features</h2>
 <p>We estimate the impacts of four types of linear features: Energy seismic lines (wide and narrow), Energy soft linear (transmission lines, pipelines), Hard Linear (roads and rails), Transportation soft linear (road verges). We predict the change to species relative abundance inside areas that have been disturbed by each linear feature class compared to the habitat it replaced (modeled reference condition with no human footprint). Effects less than 0% indicate habitat suitability is reduced (predicted related abundance is lower) compared to reference conditions, and values more than 0% indicate habitat suitability is improved (predicted relative abundance is higher) compared to reference conditions.</p>
 <p>Boreal Chorus Frog was predicted to increase in all linear feature types based on the vegetation models, while decreasing based in the soil models.</p>
+<center>
 <p><img src="Amphibians_files/figure-html/sectoreffects/north/BCFR-linear-features.png" style="width:45.0%" alt="Effects of linear features based on the vegetation models." /> <img src="Amphibians_files/figure-html/sectoreffects/south/BCFR-linear-features.png" style="width:45.0%" alt="Effects of linear features based on the soil models." /></p>
+</center>
 </div>
 <div id="predicted-abundance" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> Predicted Abundance</h2>
 <p>Under reference condition, Boreal Chorus Frog is predicted to be moderately abundant throughout all Natural Regions except the Rocky Mountains (left). Under current landcover conditions (2018 footprint) we observe high abundance throughout the Grassland and Parkland natural regions (right).</p>
+<center>
 <p><img src="Amphibians_files/figure-html/maps/BCFR_reference-abundance_2022-02-08.png" style="width:45.0%" alt="The predicted relative abundance of Boreal Chorus Frog as a function of vegetation, soil, human footprint, and space/cliamte across Alberta under reference conditions." /> <img src="Amphibians_files/figure-html/maps/BCFR_current-abundance_2022-02-08.png" style="width:45.0%" alt="The predicted relative abundance of Boreal Chorus Frog as a function of vegetation, soil, human footprint, and space/cliamte across Alberta under current conditions (2018)." /></p>
+</center>
 <p>We predicted increases in suitable habitat for Boreal Chorus Frog throughout the Parkland Natural Region. This is driven by our models predicting high abundance in agricultural footprint types.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/maps/BCFR_difference_2022-02-08.png" style="width:80.0%" alt="" />
 <p class="caption">The change in predicted relative abundance of Boreal Chorus Frog as a function of vegetation, soil, human footprint, and space/cliamte across Alberta between reference and current condition (2018 footprint).</p>
 </div>
+</center>
 </div>
 <div id="sector-effects" class="section level2" number="5.7">
 <h2><span class="header-section-number">5.7</span> Sector Effects</h2>
@@ -291,18 +309,22 @@ div.csl-indent {
 <div id="forested-region" class="section level3" number="5.7.1">
 <h3><span class="header-section-number">5.7.1</span> Forested Region</h3>
 <p>We predict that Boreal Chorus Frog has local positive responses to all sectors within this region. In addition, we observe a small regional effect of agriculture.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/sectoreffects/north/BCFR.png" alt="" />
 <p class="caption">Regional (left) and local (right) sector effects for Boreal Chorus Frog within the Forested Region</p>
 </div>
+</center>
 </div>
 <div id="prairie-region" class="section level3" number="5.7.2">
 <h3><span class="header-section-number">5.7.2</span> Prairie Region</h3>
 <p>We predict that Boreal Chorus Frog has local positive response to all sectors within this region. However, the responses are strongest for agriculture, forestry, and urban/industrial footprint types. In addition, we observe a moderate regional effect of agriculture.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/sectoreffects/south/BCFR.png" alt="" />
 <p class="caption">Regional (left) and local (right) sector effects for Boreal Chorus Frog within the Prairie Region</p>
 </div>
+</center>
 
 </div>
 </div>
@@ -317,7 +339,6 @@ div.csl-indent {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -356,7 +377,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Amphibian_Monitoring.pdf"],
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

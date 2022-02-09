@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Species Distribution Models | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada</title>
   <meta name="description" content="Technical documentation describing the ABMI amphibian species models." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Species Distribution Models | Using Autonomous Recording Units to develop species distribution models for Amphibians in Alberta, Canada" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Brandon Allen" />
 
 
-<meta name="date" content="2022-02-08" />
+<meta name="date" content="2022-02-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="data-collection.html"/>
 <link rel="next" href="boreal-chorus-frog.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -120,7 +120,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#soil"><i class="fa fa-check"></i><b>4.2</b> Soil</a></li>
 <li class="chapter" data-level="4.3" data-path="species-distribution-models.html"><a href="species-distribution-models.html#human-footprint"><i class="fa fa-check"></i><b>4.3</b> Human Footprint</a></li>
 <li class="chapter" data-level="4.4" data-path="species-distribution-models.html"><a href="species-distribution-models.html#climate"><i class="fa fa-check"></i><b>4.4</b> Climate</a></li>
-<li class="chapter" data-level="4.5" data-path="species-distribution-models.html"><a href="species-distribution-models.html#models"><i class="fa fa-check"></i><b>4.5</b> Models</a>
+<li class="chapter" data-level="4.5" data-path="species-distribution-models.html"><a href="species-distribution-models.html#species-models"><i class="fa fa-check"></i><b>4.5</b> Species models</a>
 <ul>
 <li class="chapter" data-level="4.5.1" data-path="species-distribution-models.html"><a href="species-distribution-models.html#overlap-region"><i class="fa fa-check"></i><b>4.5.1</b> Overlap Region</a></li>
 <li class="chapter" data-level="4.5.2" data-path="species-distribution-models.html"><a href="species-distribution-models.html#limitations"><i class="fa fa-check"></i><b>4.5.2</b> Limitations</a></li>
@@ -204,7 +204,7 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published by ABMI</a></li>
+<li><a href="https://github.com/ABbiodiversity" target="blank">Published by ABMI</a></li>
 
 </ul>
 
@@ -228,7 +228,7 @@ div.csl-indent {
 <p>Landcover information was extracted from the ABMI detailed Wall-to-Wall vegetation and Human Footprint GIS layer <span class="citation"><a href="#ref-AlbertaBiodiversityMonitoringInstitute2017" role="doc-biblioref">Alberta Biodiversity Monitoring Institute</a> (<a href="#ref-AlbertaBiodiversityMonitoringInstitute2017" role="doc-biblioref">2017</a>)</span>. The proportional area of vegetation, soil, and human disturbance were determined within a 150m buffer by manual interpretation of 1:30,000 aerial photos and SPOT satellite imagery <span class="citation"><a href="#ref-AlbertaBiodiversityMonitoringInstitute2016" role="doc-biblioref">Alberta Biodiversity Monitoring Institute</a> (<a href="#ref-AlbertaBiodiversityMonitoringInstitute2016" role="doc-biblioref">2016</a>)</span>.</p>
 <div id="vegetation" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Vegetation</h2>
-<p>We classified forested vegetation into five broad stand types with age classes:</p>
+<p>We classified forested vegetation into five broad stand types with age classes (0–9 years, 10–19 years, 20–39 years, 40–59 years, 60-79 years, 80-99 years, 100-119 years, 120–139 years, and +140 years):</p>
 <ul>
 <li><strong>White Spruce</strong>. This is really “upland non-pine conifer.” It is dominated by white spruce, but also includes other upland conifer species like Engelmann spruce or hybrids, balsam fir and Douglas-fir where those species occur.</li>
 <li><strong>Pine</strong>. Any pine species.</li>
@@ -237,8 +237,7 @@ div.csl-indent {
 <li><strong>Black Spruce (Treed Bog)</strong>. Lowland conifer stands, which may include species other than black
 spruce, but excluding stands where the dominant tree is larch.</li>
 </ul>
-<p>Age classes were defined in the following intervals: 0–9 years, 10–19 years, 20–39 years, 40–59 years, 60-79 years, 80-99 years, 100-119 years, 120–139 years, and +140 years.</p>
-<p>We also identified nine habitat types withtout age classes:</p>
+<p>We also define nine habitat types without age classes:</p>
 <ul>
 <li><strong>Treed Fen</strong>. Lowland stands with larch present.</li>
 <li><strong>Treed Swamp</strong>. Lowland stands with a mixture of coniferous and deciduous species.</li>
@@ -257,7 +256,7 @@ spruce, but excluding stands where the dominant tree is larch.</li>
 <ul>
 <li><strong>Loamy</strong>. Loamy soils.</li>
 <li><strong>Sandy/Loamy</strong>. Sandy/Loamy textured soils.</li>
-<li><strong>Rapid Drain</strong>. Limy, badland, gravel, sandhills, saline, and shallow gravel soils.</li>
+<li><strong>Rapid Drain</strong>. Limy, badlands, gravel, sandhills, saline, and shallow gravel soils.</li>
 <li><strong>Clay</strong>. Clay and sub-irrigated soils.</li>
 <li><strong>Thin Break</strong>. Thin break soils.</li>
 <li><strong>Blowout</strong>. Blowouts and saline lowland soils.</li>
@@ -272,19 +271,19 @@ spruce, but excluding stands where the dominant tree is larch.</li>
 <li><strong>Cultivation</strong>. Cultivated cropland planted with annual crop species. Includes areas included in crop rotations.</li>
 <li><strong>Tame Pasture</strong>. Land where soil has been disturbed and planted with perennial grass species for grazing livestock.</li>
 <li><strong>Rough Pasture</strong>. Areas where forests and/or shrubs have been removed to allow native or introduced grass to flourish for the grazing of livestock.</li>
-<li><strong>Wellsites</strong>. Includes all active and abandoned wellsites. Does not distinguish between the various types of wellsites (e.g., oil, gas, bitumen, etc).</li>
+<li><strong>Well sites</strong>. Includes all active and abandoned well sites. Does not distinguish between the various types of well sites (e.g., oil, gas, bitumen, etc).</li>
 <li><strong>Rural</strong>. Includes footprint that occurs in a rural setting but is not associated with industrial activities (e.g., country residence).</li>
 <li><strong>Urban Industrial</strong>. These are areas intermixed with urban residential and urban industrial features in cities, towns, and villages.</li>
-<li><strong>Industrial (Rural)</strong>. Industrial activies that predominately occur in rural settings. This can include features such as mills, oil and gas plants, and housing camps.</li>
+<li><strong>Industrial (Rural)</strong>. Industrial activities that predominately occur in rural settings. This can include features such as mills, oil and gas plants, and housing camps.</li>
 <li><strong>Soft Linear (Transportation)</strong>. All vegetated verges associated with road and rail features.</li>
 <li><strong>Soft Linear (Energy)</strong>. Pipelines and transmission lines.</li>
 <li><strong>Seismic Lines</strong>. Includes both narrow and wide seismic lines.</li>
-<li><strong>Hard Linear</strong>. This includes all road and rail hard surfaces.</li>
+<li><strong>Hard Linear</strong>. All road and rail hard surfaces.</li>
 </ul>
 </div>
 <div id="climate" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Climate</h2>
-<p>Climatic variables were derived from historical weather station data (500 m<sup>2</sup> spatial resolution) using the parameter-elevation regressions on independent slopes model (PRISM) method <span class="citation"><a href="#ref-Daly2002" role="doc-biblioref">Daly et al.</a> (<a href="#ref-Daly2002" role="doc-biblioref">2002</a>)</span>. As amphibians require water for successful breeding, we also calculated the proportion of water within a 1 km<sup>2</sup> buffer around each site. In addition, we included a term to capture if a site was naturally treed (probability of aspen). To enable provincial wide predictions, the above information was also summarizes as a 1 km<sup>2</sup> raster for the entire province.</p>
+<p>Climatic variables were derived from historical weather station data (500 m<sup>2</sup> spatial resolution) using the parameter-elevation regressions on independent slopes model (PRISM) method <span class="citation"><a href="#ref-Daly2002" role="doc-biblioref">Daly et al.</a> (<a href="#ref-Daly2002" role="doc-biblioref">2002</a>)</span>. As amphibians require water for successful breeding, we also calculated the proportion of water within a 1 km<sup>2</sup> buffer around each site. In addition, we included a term to capture if a site was naturally treed (probability of aspen). To enable provincial wide predictions, all landcover and climate information was summarized as a 1 km<sup>2</sup> raster for the entire province.</p>
 <table class="kable_wrapper lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:climate">Table 4.1: </span>Table of climatic information used to create the species distribution models.
@@ -370,25 +369,26 @@ Probability of Aspen
 </tbody>
 </table>
 </div>
-<div id="models" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Models</h2>
-<p>Species distribution models (SDM) were created for all species which were detected at a minimum of 20 ARUs within the analysis region (vegetation or soil) using a model selection framework <span class="citation"><a href="#ref-AlbertaBiodiversityMonitoringInstitute2015" role="doc-biblioref">Alberta Biodiversity Monitoring Institute</a> (<a href="#ref-AlbertaBiodiversityMonitoringInstitute2015" role="doc-biblioref">2015</a>)</span>. We created a set of statistical models (binomial generalized linear models) to relate the relative abundance (presence/absence) of each species to two sets of variables: landcover (vegetation/soil and human footprint) and climate (climate normals and spatial location). This framework allowed us to create models for a large number of species while selecting models for each species that are only as complex as the data supports. For example, the models for a rarer species with few records may not be able to separate different age classes or even broad stand types. In these cases, all age classes or several stand types therefore have the same average value in the resulting habitat model. We assessed model fit using AUC and only present species models with at least moderative predictive ability (AUC &gt; 0.7).</p>
+<div id="species-models" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Species models</h2>
+<p>SDMs were created for all species which were detected at a minimum of 20 ARUs within the analysis region (vegetation or soil) using a model selection framework <span class="citation"><a href="#ref-AlbertaBiodiversityMonitoringInstitute2015" role="doc-biblioref">Alberta Biodiversity Monitoring Institute</a> (<a href="#ref-AlbertaBiodiversityMonitoringInstitute2015" role="doc-biblioref">2015</a>)</span>. We created a set of statistical models (binomial generalized linear models) to relate the relative abundance (presence/absence) of each species to two sets of variables: landcover (vegetation/soil and human footprint) and climate (climate normals and spatial location). This framework allowed us to create models for a large number of species while selecting models for each species that are only as complex as the data supports. For example, the models for a rarer species with few records may not be able to separate different age classes or even broad stand types. In these cases, all age classes or several stand types therefore have the same average value in the resulting habitat model. We assessed model fit using AUC and only present species models with at least moderative predictive ability (AUC &gt; 0.7).</p>
 <div id="overlap-region" class="section level3" number="4.5.1">
 <h3><span class="header-section-number">4.5.1</span> Overlap Region</h3>
 <p>For species with both vegetation and soil based models, we weight the predictions in regions where either model would be suitable (i.e., Parkland and Dry mixedwood). This weight is based on the probability an area support trees (pAspen), the amount of unknown soil (pSoil), and the amount of treed areas (pFor).</p>
-<p align="center">
-<span class="math inline">\(North weight = pAspen / (pAspen - (1-pFor))\)</span>
+<center>
+<p><span class="math inline">\(North weight = \frac{pAspen}{pAspen - (1-pFor)}\)</span></p>
 <span class="math inline">\(South weight = (1-pAspen) * (1-pSoil) * (1-pFor)\)</span>
-</p>
-<p>We then rescale the two weights so that <span class="math inline">\(South weight = North weight - 1\)</span>.</p>
-<p align="center">
-<span class="math inline">\(North weight = North weight / (North weight + South weight)\)</span>
-<span class="math inline">\(South weight = South weight / (North weight + South weight)\)</span>
-</p>
+</center>
+<p><br></p>
+<p>We rescale these two weights (<span class="math inline">\(North weight = \frac{North weight}{North weight + South weight}\)</span>) so that:
+<br></p>
+<center>
+<p><span class="math inline">\(South weight = North weight - 1\)</span>.</p>
 <div class="figure">
 <img src="Amphibians_files/figure-html/sectoreffects/prediction-overlap_2022-02-08.png" style="width:80.0%" alt="" />
 <p class="caption">Distribution of weights used for averaging predictions created from the vegetation and soil based models.</p>
 </div>
+</center>
 </div>
 <div id="limitations" class="section level3" number="4.5.2">
 <h3><span class="header-section-number">4.5.2</span> Limitations</h3>
@@ -402,10 +402,12 @@ Probability of Aspen
 <div id="reporting-regions" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Reporting Regions</h2>
 <p>We summarize our SDM for two reporting regions: 1) The Forested region is composed of the Boreal, Canadian Shield, Rocky Mountain (excluding eastern portion of the Montane region), and Foothills natural regions in addition to the northern portion of the Dry Mixedwood natural subregion. These areas are predominately impacted by forestry footprint; 2) The Prairie region is composed of the Grassland and Parkland natural regions, the southern portion of the Dry Mixedwood natural subregion, and the eastern portion of the Montane natural subregion. These areas were grouped together due to agriculture being the predominate anthropogenic disturbance.</p>
+<center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/sectoreffects/sector-effect-regions_2022-01-24.png" style="width:80.0%" alt="" />
 <p class="caption">The boundaries of the forested and prairie reporting regions used for calculating sector effects.</p>
 </div>
+</center>
 
 </div>
 </div>
@@ -434,7 +436,6 @@ Daly, Christopher, Wayne P Gibson, George H Taylor, Gregory L Johnson, and Phill
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -473,7 +474,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Amphibian_Monitoring.pdf"],
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
