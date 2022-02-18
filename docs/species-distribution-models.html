@@ -24,7 +24,7 @@
 <meta name="author" content="Brandon Allen" />
 
 
-<meta name="date" content="2022-02-09" />
+<meta name="date" content="2022-02-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="species-distribution-models" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Species Distribution Models</h1>
-<p>Landcover information was extracted from the ABMI detailed Wall-to-Wall vegetation and Human Footprint GIS layer <span class="citation"><a href="#ref-AlbertaBiodiversityMonitoringInstitute2017" role="doc-biblioref">Alberta Biodiversity Monitoring Institute</a> (<a href="#ref-AlbertaBiodiversityMonitoringInstitute2017" role="doc-biblioref">2017</a>)</span>. The proportional area of vegetation, soil, and human disturbance were determined within a 150m buffer by manual interpretation of 1:30,000 aerial photos and SPOT satellite imagery <span class="citation"><a href="#ref-AlbertaBiodiversityMonitoringInstitute2016" role="doc-biblioref">Alberta Biodiversity Monitoring Institute</a> (<a href="#ref-AlbertaBiodiversityMonitoringInstitute2016" role="doc-biblioref">2016</a>)</span>.</p>
+<p>Landcover information was extracted from the ABMI detailed Wall-to-Wall vegetation and Human Footprint GIS layer <span class="citation">(<a href="#ref-AlbertaBiodiversityMonitoringInstitute2017" role="doc-biblioref">Alberta Biodiversity Monitoring Institute 2017</a>)</span>. The area of vegetation, soil, and human disturbance were determined within a 150m buffer by manual interpretation of 1:30,000 aerial photos and SPOT satellite imagery <span class="citation">(<a href="#ref-AlbertaBiodiversityMonitoringInstitute2016" role="doc-biblioref">Alberta Biodiversity Monitoring Institute 2016</a>)</span> and transformed into proportions.</p>
 <div id="vegetation" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Vegetation</h2>
 <p>We classified forested vegetation into five broad stand types with age classes (0–9 years, 10–19 years, 20–39 years, 40–59 years, 60-79 years, 80-99 years, 100-119 years, 120–139 years, and +140 years):</p>
@@ -245,7 +245,7 @@ spruce, but excluding stands where the dominant tree is larch.</li>
 <li><strong>Shrubby Bog</strong>. Bogs dominated by shrubby vegetation.</li>
 <li><strong>Shrubby Fen</strong>. Rich and poor shrubby fens.</li>
 <li><strong>Graminoid Fen</strong>. Composed of grass fens.</li>
-<li><strong>Marsh</strong>. Marshes.</li>
+<li><strong>Marsh</strong>.</li>
 <li><strong>Shrub</strong>. Upland edaphic shrub areas. Mapping of this type is imprecise, and some early seral post-fire stands may also be included here.</li>
 <li><strong>Grass</strong>. Upland edaphic grass areas, or herbaceous areas. Mapping of this type is imprecise, and some early seral post-fire stands may also be included here.</li>
 </ul>
@@ -254,11 +254,11 @@ spruce, but excluding stands where the dominant tree is larch.</li>
 <h2><span class="header-section-number">4.2</span> Soil</h2>
 <p>Soil classes were compiled into seven broad categories:</p>
 <ul>
-<li><strong>Loamy</strong>. Loamy soils.</li>
-<li><strong>Sandy/Loamy</strong>. Sandy/Loamy textured soils.</li>
+<li><strong>Loamy</strong>.</li>
+<li><strong>Sandy/Loamy</strong>.</li>
 <li><strong>Rapid Drain</strong>. Limy, badlands, gravel, sandhills, saline, and shallow gravel soils.</li>
 <li><strong>Clay</strong>. Clay and sub-irrigated soils.</li>
-<li><strong>Thin Break</strong>. Thin break soils.</li>
+<li><strong>Thin Break</strong>.</li>
 <li><strong>Blowout</strong>. Blowouts and saline lowland soils.</li>
 <li><strong>Other</strong>. All other soil types with low sample sizes (e.g., lotic and lentic soil).</li>
 </ul>
@@ -283,7 +283,7 @@ spruce, but excluding stands where the dominant tree is larch.</li>
 </div>
 <div id="climate" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Climate</h2>
-<p>Climatic variables were derived from historical weather station data (500 m<sup>2</sup> spatial resolution) using the parameter-elevation regressions on independent slopes model (PRISM) method <span class="citation"><a href="#ref-Daly2002" role="doc-biblioref">Daly et al.</a> (<a href="#ref-Daly2002" role="doc-biblioref">2002</a>)</span>. As amphibians require water for successful breeding, we also calculated the proportion of water within a 1 km<sup>2</sup> buffer around each site. In addition, we included a term to capture if a site was naturally treed (probability of aspen). To enable provincial wide predictions, all landcover and climate information was summarized as a 1 km<sup>2</sup> raster for the entire province.</p>
+<p>Climatic variables were derived from historical weather station data (500 m<sup>2</sup> spatial resolution) using the parameter-elevation regressions on independent slopes model (PRISM) method <span class="citation">(<a href="#ref-Daly2002" role="doc-biblioref">Daly et al. 2002</a>)</span>. As amphibians require water for successful breeding, we also calculated the proportion of water within a 1 km<sup>2</sup> buffer around each site. In addition, we included a term to capture the probability that an area supports trees (probability of aspen). To enable provincial wide predictions, all landcover and climate information was summarized as a 1 km<sup>2</sup> raster for the entire province.</p>
 <table class="kable_wrapper lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:climate">Table 4.1: </span>Table of climatic information used to create the species distribution models.
@@ -371,10 +371,10 @@ Probability of Aspen
 </div>
 <div id="species-models" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Species models</h2>
-<p>SDMs were created for all species which were detected at a minimum of 20 ARUs within the analysis region (vegetation or soil) using a model selection framework <span class="citation"><a href="#ref-AlbertaBiodiversityMonitoringInstitute2015" role="doc-biblioref">Alberta Biodiversity Monitoring Institute</a> (<a href="#ref-AlbertaBiodiversityMonitoringInstitute2015" role="doc-biblioref">2015</a>)</span>. We created a set of statistical models (binomial generalized linear models) to relate the relative abundance (presence/absence) of each species to two sets of variables: landcover (vegetation/soil and human footprint) and climate (climate normals and spatial location). This framework allowed us to create models for a large number of species while selecting models for each species that are only as complex as the data supports. For example, the models for a rarer species with few records may not be able to separate different age classes or even broad stand types. In these cases, all age classes or several stand types therefore have the same average value in the resulting habitat model. We assessed model fit using AUC and only present species models with at least moderative predictive ability (AUC &gt; 0.7).</p>
+<p>SDMs were created for all species which were detected at a minimum of 20 ARUs within the analysis region (vegetation or soil) using a model selection framework <span class="citation">(<a href="#ref-AlbertaBiodiversityMonitoringInstitute2015" role="doc-biblioref">Alberta Biodiversity Monitoring Institute 2015</a>)</span>. We created a set of statistical models (binomial generalized linear models) to relate the relative abundance (presence/absence) of each species to two sets of variables: landcover (vegetation/soil and human footprint) and climate (climate normals and spatial location). This framework allowed us to create models for a large number of species while selecting models for each species that are only as complex as the data supports. For example, the models for a rarer species with few records may not be able to separate different age classes or even broad stand types. In these cases, all age classes or several stand types therefore have the same average value in the resulting habitat model. We assessed model fit using AUC and only present species models with at least moderative predictive ability (AUC &gt; 0.7).</p>
 <div id="overlap-region" class="section level3" number="4.5.1">
 <h3><span class="header-section-number">4.5.1</span> Overlap Region</h3>
-<p>For species with both vegetation and soil based models, we weight the predictions in regions where either model would be suitable (i.e., Parkland and Dry mixedwood). This weight is based on the probability an area support trees (pAspen), the amount of unknown soil (pSoil), and the amount of treed areas (pFor).</p>
+<p>For species with both vegetation and soil based models, we weighted the predictions in regions where either model would be suitable (i.e., Parkland and Dry mixedwood). This weight is based on the probability an area supports trees (pAspen), the amount of unknown soil (pSoil), and the amount of treed areas (pFor).</p>
 <center>
 <p><span class="math inline">\(North weight = \frac{pAspen}{pAspen - (1-pFor)}\)</span></p>
 <span class="math inline">\(South weight = (1-pAspen) * (1-pSoil) * (1-pFor)\)</span>
@@ -392,16 +392,16 @@ Probability of Aspen
 </div>
 <div id="limitations" class="section level3" number="4.5.2">
 <h3><span class="header-section-number">4.5.2</span> Limitations</h3>
-<p><strong>The explanatory variables are confounded.</strong> We have limited ability to separate the effects of each vegetation and human footprint type, and spatial and climate variables. In addition to the challenges generating uncertainty in the individual values, ABMI is not an experimental study. We do not design and manipulate habitat and human footprint types, and simply use what is sampled in the province. As a result, habitat and human footprint types are partially confounded with geographic location and climate variables. Our modeling separate out these effects as best as possible, but without impossible province-wide experiments, we can never be sure how well we have estimated the separate habitat, human footprint and geographic/climate effects.</p>
+<p><strong>The explanatory variables are confounded.</strong> We have limited ability to separate the effects of each vegetation and human footprint type, and spatial and climate variables. In addition to the challenges generating uncertainty in the individual values, ABMI is not an experimental study. We do not design and manipulate habitat and human footprint types, and simply use what is sampled in the province. As a result, habitat and human footprint types are partially confounded with geographic location and climate variables. Our modeling separates out these effects as best as possible, but without impossible province-wide experiments, we can never be sure how well we have estimated the separate habitat, human footprint and geographic/climate effects.</p>
 <p><strong>We use the same model set for all species.</strong> Our model selection approach weights different models in a model set based on the support provided by each species’ data. However, we use the same set of models for all species. We currently do not have the resources to develop separate model sets for individual species to benefit from the differences in natural history.</p>
 <p><strong>There are errors in species identification.</strong> Vocalization events from amphibians can be misidentified due to low volume or similarity in species calls. These misidentifications can reduce the accuracy of our models.</p>
 <p><strong>The vegetation and soil classification is simplified and contains errors.</strong> ABMI’s vegetation map is compiled from various sources, not all of which cover the entire province. Some layers are less accurate than others. Also, even if individual polygons are accurate, their boundaries may not be precise, and many ABMI sites fall on the edges of vegetation polygons. Resulting error in the vegetation types at sites increases error in the habitat models. Some habitat types may have additional challenges. Grass and shrub sites in the North, for example, may be true permanent open habitats, but the same designation is often given to early seral stages of forested sites after fire. Grass and shrub sites in the prairies are also poorly mapped. Mixedwood stands are also poorly mapped, because they represent a gradient between deciduous and upland conifer stands, which can often change as a stand ages.</p>
-<p><strong>No other effects of human activities are included in our models.</strong> Many sites in the <em>Prairie</em> region are grazed to varying degrees but this information is not available. Thus grazing effects cannot be included in our models, and if grazing differs among native habitat types the effects confound those difference. Any wide-scale human effects, like pollution away from visible human footprint or recent climate change, are also not included in our modeling. Additionally, we only include effects of footprint at the local scale (150m) we sample at. Due to sample size constraints and confounding among variables, we do not include any additional effects that might be caused by human footprint in the larger surrounding area.</p>
+<p><strong>No other effects of human activities are included in our models.</strong> Many sites in the Prairie region are grazed to varying degrees but this information is not available. Thus grazing effects cannot be included in our models, and if grazing differs among native habitat types the effects confound those difference. Any wide-scale human effects, like pollution away from visible human footprint or recent climate change, are also not included in our modeling. Additionally, we only include effects of footprint at the local scale (150m) we sample at. Due to sample size constraints and confounding among variables, we do not include any additional effects that might be caused by human footprint in the larger surrounding area.</p>
 </div>
 </div>
 <div id="reporting-regions" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Reporting Regions</h2>
-<p>We summarize our SDM for two reporting regions: 1) The Forested region is composed of the Boreal, Canadian Shield, Rocky Mountain (excluding eastern portion of the Montane region), and Foothills natural regions in addition to the northern portion of the Dry Mixedwood natural subregion. These areas are predominately impacted by forestry footprint; 2) The Prairie region is composed of the Grassland and Parkland natural regions, the southern portion of the Dry Mixedwood natural subregion, and the eastern portion of the Montane natural subregion. These areas were grouped together due to agriculture being the predominate anthropogenic disturbance.</p>
+<p>We summarize our SDM for two reporting regions: 1) The Forested region is composed of the Boreal, Canadian Shield, Rocky Mountain (excluding eastern portion of the Montane subregion), and Foothills natural regions in addition to the northern portion of the Dry Mixedwood natural subregion. These areas were grouped together due to forestry being the predominate footprint type; 2) The Prairie region is composed of the Grassland and Parkland natural regions, the southern portion of the Dry Mixedwood natural subregion, and the eastern portion of the Montane natural subregion. These areas were grouped together due to agriculture being the predominate anthropogenic disturbance.</p>
 <center>
 <div class="figure">
 <img src="Amphibians_files/figure-html/sectoreffects/sector-effect-regions_2022-01-24.png" style="width:80.0%" alt="" />
