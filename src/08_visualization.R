@@ -1,7 +1,7 @@
 #
 # Title: ABMI Amphibian predictions and visualization
 # Created: August 8th, 2018
-# Last Updated: February 8th, 2022
+# Last Updated: March 23rd, 2022
 # Author: Brandon Allen
 # Objective: Intactness analysis for the North model region
 # Keywords: Occurrence, Seasonality, Coefficients, Climate Results, Relative abundance, Sector effects, Overlap Region
@@ -973,7 +973,7 @@ for (species in unique(region.se$SpeciesID)) {
     under.hf <- ggplot(data = species.subset, aes(x = Sector, y = UnderHF, fill = Sector)) +
         geom_bar(stat = "identity", fill = colour.pal, color = "#000000") +
         guides(scale = "none") + 
-        labs(x = "Sectors", y = "Under Footprint Sector Effect (%)") +
+        labs(x = "Linear Features", y = "Under Footprint Sector Effect (%)") +
         scale_y_continuous(limits = c(-100, 100),
                            labels = c(-100, -50, 0, 50, 100)) +
         theme_light() +
