@@ -1,0 +1,21 @@
+# Great Plains Toad
+
+The Great Plains Toad (*Anaxyrus cognatus*) is found in the south eastern portion of Alberta grasslands. This toad is usually light brown or olive with dark blotches surrounding by a light border and light stripes. The Great Plains Toad is found in both shallow natural and anthropogenic water bodies (e.g., dikes, ditches), and burrows deep in the soil to avoid the dry period and hibernate (https://canadianherpetology.ca).
+
+## Distribution
+
+The Great Plains Toad was rare in our data set and detected at 4 of 1648 survey locations. All four detections were within the Grassland natural region of Alberta.
+
+<center>
+![The occurrence of Great Plains Toad detected between 2013-2021 at ABMI and BU locations.](Amphibians_files/figure-html/occurrence/GPTO-sampling_2022-01-20.png){width=80%}
+
+</center>
+
+## Seasonality
+
+As we have so few detections of this species, we are unable to determine an optimal survey period based on our data alone. Of the nineteen unique recordings collected, we observed Great Plains Toad between late May and late June.
+
+<center>
+![The frequency of detections across sites aggregated by Julian calendar day.](Amphibians_files/figure-html/seasonality/all/GPTO-seasonality_2022-01-20.png)
+
+</center>

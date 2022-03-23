@@ -1,0 +1,33 @@
+--- 
+title: "Using autonomous recording units to develop species distribution models for vocalizing amphibians in Alberta, Canada"
+author: "Brandon Allen"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+always_allow_html: true
+description: "Technical documentation describing the ABMI amphibian species distribution models."
+---
+
+# Summary
+
+The Alberta Biodiversity Monitoring Institute (ABMI) has developed a monitoring program for vocalizing amphibians within Alberta. This technical document contains information describing how the data was collected, processed, and analysed. This document will be update as necessary to reflect changes in available data and modeling procedures. Readers can find the most up-to-date results on the ABMI Biodiversity Browser (https://www.abmi.ca/home/data-analytics/biobrowser-home).
+
+## Acknowledgement
+
+We would like to acknowledge that this work would not be possible without the dedication of the ABMI staff, both past and present. Without our field staff, geospatial experts, taxonomists, and ecologists, we would not be able to perform this work.
+
+## Suggested citation
+
+Alberta Biodiversity Monitoring Institute. 2022. Using autonomous recording units to develop species distribution models for vocalizing amphibians in Alberta, Canada. Alberta Biodiversity Monitoring Institute, Alberta, Canada. (https://abbiodiversity.github.io/Amphibians/) 
+
+## Contact
+
+All questions related to this document, acquiring raw data, or the available scripts, please contact Brandon Allen (brandon.allen@ualberta.ca).
+
+<center>
+![](Amphibians_files/figure-html/logo/ABMI-Horizontal-FullColour.png){width=80%}
+
+</center>

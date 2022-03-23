@@ -1,0 +1,22 @@
+# Plains Spadefoot
+
+The Plains Spadefoot (*Spea bombifrons*), similar to the Great Plains Toad, occurs in the southern portion of the Alberta Grasslands. They are grey, brown, or olive with reddish spots and often match their local substrate. This species occupies shallow natural and anthropogenic water bodies (e.g., temporary ponds, ditches, etc) and burrows to avoid dry conditions. They hibernate in deep burrows they dig themselves, or use unoccupied mammal burrows (https://canadianherpetology.ca).
+
+## Distribution
+
+The Plains Spadefoot was rare in our data set and detected at 11 of 1648 survey locations. All observations were found in the Grasslands natural region.
+
+<center>
+![The occurrence of Plains Spadefoot detected between 2013-2021 at ABMI and BU locations.](Amphibians_files/figure-html/occurrence/PLSP-sampling_2022-01-20.png){width=80%}
+
+</center>
+
+## Seasonality
+
+As we have so few detections of this species, we are unable to determine an optimal survey period based on our data alone. Of the twenty-nine unique recordings collected, we observed Plains Spadefoot between early May and late July.
+
+<center>
+![The frequency of detections across sites aggregated by Julian calendar day.](Amphibians_files/figure-html/seasonality/all/PLSP-seasonality_2022-01-20.png){width=80%}
+
+</center>
+

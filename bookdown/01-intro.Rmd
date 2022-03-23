@@ -1,0 +1,27 @@
+# Introduction
+
+## The Alberta Biodiversity Monitoring Institute
+The ABMI began deploying autonomous recording units (ARU) in 2015 to capture the vocalizations of song-birds. These observations have been incorporated into the ABMI's species distribution modeling (SDM) framework that uses supplementary databases (e.g., Boreal Avian Monitoring Project) and methods (e.g., river fork data from 2007-2015) to identify species habitat relationships with native landcover, human footprint, and climate. Though the primary reason for deploying ARUs was to monitoring song-birds, the ABMI has begun using this methodology to monitor vocalizing amphibians. In addition, we are collaborating with the Bioacoustic Unit (BU) to incorporate their recordings of amphibians collected as part of wetland surveys between 2013 and 2021. With more than 10,000 individual recordings, our goal was to develop SDMs to identify relationships with native and human footprint landcover types, calculate the impacts of anthropogenic disturbance, and predict the probability of occurrence across the province under both the current landscape condition and a reference condition. This information can be used internally, by stakeholders, or the general public to identify where amphibians are occurring in the province and how they are impacted by land use changes.
+
+## Amphibians 101
+
+Alberta is home to ten amphibian species: two salamanders, three true frogs, three true toads, one tree frog, and one species of spadefoot. This unique group of species use their skin to breathe and absorb water. They also require both aquatic and terrestrial habitats to thrive. During the breeding season, male frogs and toads will begin vocalizing in order to attract mates. The timing of their vocalizations can be dependent on the time of year, local temperature conditions, and even rain events. These vocalizing periods can be captured using ARUs but only reflect part of an amphibians habitat requirements. Unique characteristics within wetlands (e.g., salt concentrations, fish presence) and terrestrial habitats occupied outside of the breeding season are not captured by ARUs.
+
+## Expert Review
+
+As amphibians are a high profile taxon within the province, the ABMI has implemented a phased roll out of data: 
+
+- Phase 1 (completed May 1^st^, 2021): Updated our Biodiversity Browser with basic occurrence maps for all vocalizing amphibians detected at ABMI sites (https://www.abmi.ca/home/data-analytics/biobrowser-home).
+- Phase 2 (completed September 1^st^, 2021): Developed preliminary SDMs and completed an engagement period with local amphibian experts.
+- Phase 3 (completed January 31^st^, 2022): Synthesized the advice identified during the expert review phase and updated our SDMs. 
+- Phase 4 (TBD): Public release of newly collected occurrence data and updated SDMs alongside  the updated Biodiversity Browser.
+
+During our engagement period with experts, we asked them to comment on the following topics:
+
+- Are there gaps in how ARU recordings are summarized?
+- Do the habitat relationships identified in the SDMs align with your natural history knowledge of these species?
+- Do the spatial predictions created by the model align with your natural history knowledge of these species' current distribution in the province?
+- Are there key habitat or climate variables you feel are essential to capturing amphibian distributions that are currently not included? 
+- Would you be comfortable using these results to inform your own personal work?
+
+The feedback provided by the experts was synthesized and concerns were addressed whenever possible. These models will be under continual development, so we expect improvements as more amphibian surveys are completed and new data layers are made available. We would like to acknowledge and thank our group of experts as their comments during the review process improved the quality of our species models.
