@@ -5,5 +5,5 @@
 /data/** 
 /beta/**
 /results/**
-/bookdown/**
-/src/**
+/bookdown/
+/src/
