@@ -1,6 +1,6 @@
 # Western Toad
 
-The Western Toad (*Anaxyrus boreas*) is distributed throughout the western and central areas of Alberta. This species breeds in shallow aquatic habitats, such as the edges of lakes, rivers, and ponds (https://canadianherpetology.ca). Outside of the breeding period, this species occurs in a variety of wetland, forest, meadow, and scrubland habitats. This aligns with our vegetation based model, which predicted that Western Toad would have increased abundances in native wetland habitats, and low abundances in crop, tame pasture, rough pasture, and urban industrial human footprint. Similar to Boreal Chorus Frog, we observed high abundances of Western Toads in cut-blocks which could provide shallow ephemeral ponds surrounded by native vegetation that are suitable as breeding sites. However, our models are unable to identify if the high abundance in cut-blocks leads to successful breeding events or if these habitats are acting as population sinks on the landscape.
+The Western Toad (*Anaxyrus boreas*) is distributed throughout the western and central areas of Alberta. This species breeds in shallow aquatic habitats, such as the edges of lakes, rivers, and ponds (https://canadianherpetology.ca). Outside of the breeding period, this species occurs in a variety of wetland, forest, meadow, and scrubland habitats. This aligns with our vegetation based model, which predicted that Western Toad would have high abundances in native wetland habitats, and low abundances in crop, tame pasture, rough pasture, and urban industrial human footprint. Similar to Boreal Chorus Frog, we observed high abundances of Western Toads in harvest areas which could provide shallow ephemeral ponds surrounded by native vegetation that are suitable as breeding sites. However, our models are unable to identify if the high abundance in harvest areas leads to successful breeding events or if these habitats are acting as population sinks on the landscape.
 
 ## Distribution
 
@@ -22,26 +22,26 @@ With 324 unique recordings of Western Toad, we were able to determine an optimal
 
 ## Vegetation Models
 
-We were able to create a SDM using the vegetation land cover information with good fit (AUC = 0.87). The vegetation based model indicated that this species is predicted to have high abundance in native moderate aged Pine and Deciduous forests, and old Treed Bogs. This is in addition to high abundance in cut-blocks and moderate abundance in rough and tame pastures. 
+We were able to create a SDM using the vegetation landcover information with good fit (AUC = 0.87). The vegetation based model indicated that this species is predicted to have high abundance in native moderate aged Pine and Deciduous forests, and old Treed Bogs. This is in addition to high abundance in cut-blocks and moderate abundance in rough and tame pastures. 
 
 <center>
-![The predicted relative abundance (bars) of Western Toad as a function of vegetation and human footprint types in the forested region. Black vertical lines represent 90/% confidence intervals and blue vertical lines are added to forest types where harvesting occurs  and shows the predicted species abundance in cut-blocks of various ages.](Amphibians_files/figure-html/coefficients/north/WETO_2022-01-20.png)
+![The predicted relative abundance (bars) of Western Toad as a function of vegetation and human footprint types in the forested region. Black vertical lines represent 90% confidence intervals and blue vertical lines are added to forest types where harvesting occurs and shows the predicted species abundance in harvest areas of various ages.](Amphibians_files/figure-html/coefficients/north/WETO_2022-01-20.png)
 
 </center>
 
 The spatial and climate component indicated negative relationships with longitude and a non-linear relationship with the amount of open water.
 
 <center>
-![The spatial and climate components from the vegetation based model for Western Toad.](Amphibians_files/figure-html/coefficients/north/WETO_climate_2022-01-20.png){width=60%}
+![The spatial and climate coefficients from the vegetation based model for Western Toad.](Amphibians_files/figure-html/coefficients/north/WETO_climate_2022-01-20.png){width=60%}
 
 </center>
 
 ## Soil Models
 
-We were able to create a SDM using the soil land cover information with moderate fit (AUC = 0.94). The soil based models predicted higher abundance in rapid drain, thin break, and blow out soils while low abundance for all footprint types. There was positive effect between treed and non-treed sites. 
+We were able to create a SDM using the soil landcover information with good fit (AUC = 0.94). The soil based models predicted higher abundance in rapid drain, thin break, and blow out soils while low abundance for all footprint types. There was positive effect between treed and non-treed sites. 
 
 <center>
-![The predicted relative abundance (bars) of Western Toad as a function of soil and human footprint types in the prairie region. Black vertical lines represent 90/% confidence intervals. The presence/absence of trees affects the presence and abundance of many species; therefore, separate figures are presented for treed and non-treed sites in the prairie region.](Amphibians_files/figure-html/coefficients/south/WETO-combined_2022-01-20.png)
+![The predicted relative abundance (bars) of Western Toad as a function of soil and human footprint types in the prairie region. Black vertical lines represent 90% confidence intervals. The presence/absence of trees affects the presence and abundance of many species; therefore, separate figures are presented for treed and non-treed sites in the prairie region.](Amphibians_files/figure-html/coefficients/south/WETO-combined_2022-01-20.png)
 
 </center>
 
@@ -49,15 +49,15 @@ We were able to create a SDM using the soil land cover information with moderate
 The spatial and climate component indicated positive relationships with latitude and a negative relationship with longitude.
 
 <center>
-![The spatial and climate components from the soil based model for Western Toad.](Amphibians_files/figure-html/coefficients/south/WETO_climate_2022-01-20.png){width=60%}
+![The spatial and climate coefficients from the soil based model for Western Toad.](Amphibians_files/figure-html/coefficients/south/WETO_climate_2022-01-20.png){width=60%}
 
 </center>
 
 ## Linear Features
 
-We estimate the impacts of four types of linear features: Energy seismic lines (wide and narrow), Energy soft linear (transmission lines, pipelines), Hard linear (roads and rails), Transportation soft linear (road verges). We predicted the change to species relative abundance inside areas that have been disturbed by each linear feature class compared to the habitat it replaced (modeled reference condition with no human footprint). Effects less than 0% indicate habitat suitability is reduced (predicted related abundance is lower) compared to reference conditions, and values more than 0% indicate habitat suitability is improved (predicted relative abundance is higher) compared to reference conditions.
+We estimate the impacts of four types of linear features: Energy seismic lines (wide and narrow), energy soft linear (transmission lines, pipelines), hard linear (roads and rails), and transportation soft linear (road verges). We predicted the change to species relative abundance inside areas that have been disturbed by each linear feature class compared to the habitat it replaced (modeled reference condition with no human footprint). Effects less than 0% indicate habitat suitability is reduced (predicted related abundance is lower) compared to reference conditions, and values more than 0% indicate habitat suitability is improved (predicted relative abundance is higher) compared to reference conditions.
 
-The vegetation and soil based models indicate that Western Toad decreased in hard linear features, and increased in all other types. 
+The vegetation (left) and soil (right) based models indicate that Western Toad decreased in hard linear features, and increased in all other types. 
 
 <center>
 ![Effects of linear features based on the vegetation models.](Amphibians_files/figure-html/sectoreffects/north/WETO-linear-features.png){width=45%} ![Effects of linear features based on the soil models.](Amphibians_files/figure-html/sectoreffects/south/WETO-linear-features.png){width=45%}
@@ -66,18 +66,18 @@ The vegetation and soil based models indicate that Western Toad decreased in har
 
 ## Predicted Abundance
 
-Under reference conditions, Western Toad is predicted to be moderately abundant throughout the Foothills, Rocky Mountains, and west-central portions of the Boreal Natural Regions (left). Under current landcover conditions (2018 footprint) we predicted a similar distribution.
+Under reference conditions, Western Toad is predicted to be moderately abundant throughout the Foothills, Rocky Mountains, and west-central portions of the Boreal natural regions (left). Under current landcover conditions (2018 footprint) we predicted a similar distribution.
 
 <center>
-![The predicted relative abundance of Western Toad as a function of vegetation, soil, human footprint, and space/cliamte across Alberta under reference conditions.](Amphibians_files/figure-html/maps/WETO_reference-abundance_2022-02-08.png){width=45%} ![The predicted relative abundance of Western Toad as a function of vegetation, soil, human footprint, and space/cliamte across Alberta under current conditions (2018).](Amphibians_files/figure-html/maps/WETO_current-abundance_2022-02-08.png){width=45%} 
+![The predicted relative abundance of Western Toad as a function of vegetation, soil, human footprint, and space/climate across Alberta under reference conditions.](Amphibians_files/figure-html/maps/WETO_reference-abundance_2022-02-08.png){width=45%} ![The predicted relative abundance of Western Toad as a function of vegetation, soil, human footprint, and space/climate across Alberta under current conditions (2018).](Amphibians_files/figure-html/maps/WETO_current-abundance_2022-02-08.png){width=45%} 
 
 </center>
 
 
-We predicted increases in suitable habitat for Western Toad throughout the Foothills and portions of the Boreal Natural Region. This is driven by our models predicting high abundance in forestry footprint types.
+We predicted increases in suitable habitat for Western Toad throughout the Foothills and portions of the Boreal natural region. This is driven by our models predicting high abundance in forestry footprint types.
 
 <center>
-![The change in predicted relative abundance of Western Toad as a function of vegetation, soil, human footprint, and space/cliamte across Alberta between reference and current condition (2018 footprint).](Amphibians_files/figure-html/maps/WETO_difference_2022-02-08.png){width=80%} 
+![The change in predicted relative abundance of Western Toad as a function of vegetation, soil, human footprint, and space/climate across Alberta between reference and current condition (2018 footprint).](Amphibians_files/figure-html/maps/WETO_difference_2022-02-08.png){width=80%} 
 
 </center>
 
@@ -85,7 +85,6 @@ We predicted increases in suitable habitat for Western Toad throughout the Footh
 ## Sector Effects
 
 Local sector effects represent the change to species relative abundance inside areas that have been disturbed by each sector (human footprint type) compared to the habitat it replaced (modeled reference condition with no human footprint). Sector effect values less than 0% indicate habitat suitability is reduced (predicted related abundance is lower) compared to reference conditions, and values more than 0% indicate habitat suitability is improved (predicted relative abundance is higher) compared to reference conditions.
-
 
 Regional sector effects represent the change in the total regional population by industrial sector for species. This incorporates the area of the footprint, the native habitats where the footprint occurs, and the species response to a particular footprint. Regional population effect values less than 0% indicate a predicted decrease in the regional population due to a particular sector’s footprint, and values greater than 0% indicate a predicted increase.
 
