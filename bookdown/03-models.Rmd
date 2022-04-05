@@ -1,6 +1,6 @@
 # Species Distribution Models
 
-Landcover information was extracted from the ABMI detailed Wall-to-Wall vegetation and Human Footprint GIS layer [@AlbertaBiodiversityMonitoringInstitute2017]. The area of vegetation, soil, and human disturbance were determined within a 150m buffer by manual interpretation of 1:30,000 aerial photos and SPOT satellite imagery [@AlbertaBiodiversityMonitoringInstitute2016] and transformed into proportions.
+Depending on data availability, we construct two sets of species models. The vegetation based model (Section 4.1) is created using sites except for those in the Grassland natural region. The soil based model (Section 4.2) includes sites that fall within the Grassland and Parkland natural regions, plus the southern portion of the Dry mixedwood natural subregion. Landcover information was extracted from the ABMI detailed Wall-to-Wall vegetation and Human Footprint GIS layer [@AlbertaBiodiversityMonitoringInstitute2017]. The area of vegetation, soil, and human disturbance were determined within a 150m buffer by manual interpretation of 1:30,000 aerial photos and SPOT satellite imagery [@AlbertaBiodiversityMonitoringInstitute2016] and transformed into proportions.
 
 ## Vegetation
 
