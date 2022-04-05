@@ -73,7 +73,11 @@ amphibian.occ$Site <- site.lookup$Site_Simple[match(amphibian.occ$Location, site
 recordings <- data.frame(Occurrences = c(sum(ifelse(amphibian.occ$BCFR > 0, 1, 0)),
                                          sum(ifelse(amphibian.occ$CATO > 0, 1, 0)),
                                          sum(ifelse(amphibian.occ$WETO > 0, 1, 0)),
-                                         sum(ifelse(amphibian.occ$WOFR > 0, 1, 0))))
+                                         sum(ifelse(amphibian.occ$WOFR > 0, 1, 0)),
+                                         sum(ifelse(amphibian.occ$CSFR > 0, 1, 0)),
+                                         sum(ifelse(amphibian.occ$GPTO > 0, 1, 0)),
+                                         sum(ifelse(amphibian.occ$NLFR > 0, 1, 0)),
+                                         sum(ifelse(amphibian.occ$PLSP > 0, 1, 0))))
 
 data.update <- NULL
 
@@ -92,7 +96,11 @@ for (site in unique(amphibian.occ$Site)) {
 recordings$nSites <- c(sum(ifelse(data.update$BCFR > 0, 1, 0)),
                        sum(ifelse(data.update$CATO > 0, 1, 0)),
                        sum(ifelse(data.update$WETO > 0, 1, 0)),
-                       sum(ifelse(data.update$WOFR > 0, 1, 0)))
+                       sum(ifelse(data.update$WOFR > 0, 1, 0)),
+                       sum(ifelse(data.update$CSFR > 0, 1, 0)),
+                       sum(ifelse(data.update$GPTO > 0, 1, 0)),
+                       sum(ifelse(data.update$NLFR > 0, 1, 0)),
+                       sum(ifelse(data.update$PLSP > 0, 1, 0)))
 
 # Create species lookup
 
