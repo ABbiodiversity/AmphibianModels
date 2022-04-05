@@ -98,7 +98,7 @@ We predicted that Wood Frog has local positive responses to all sectors within t
 
 ### Prairie Region
 
-We predicted that Wood Frog has local positive responses to all sectors within this region. However, the responses are strongest for agriculture and forestry. In addition, we observe a moderate regional effect of agriculture. 
+We predicted that Wood Frog has local negative responses to all sectors within this region. In addition, we observe a small regional effect of agriculture. 
 
 <center>
 ![Regional (left) and local (right) sector effects for Wood Frog within the Prairie Region](Amphibians_files/figure-html/sectoreffects/south/WOFR.png)
