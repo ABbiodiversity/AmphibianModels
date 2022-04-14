@@ -71,3 +71,4 @@ predicted-abundance-3
 sector-effects-3
 forested-region-3
 prairie-region-3
+literature
