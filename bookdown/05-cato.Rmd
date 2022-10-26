@@ -41,7 +41,7 @@ The spatial and climate component indicated weak relationships except for a stro
 We were able to create a SDM using the soil landcover information with good fit (AUC = 0.86). The soil based models predicted high levels of abundance in native soil classes, and low abundance in footprint types. There was no effect between treed and non-treed sites. 
 
 <center>
-![The predicted relative abundance (bars) of Boreal Chorus Frog as a function of soil and human footprint types in the prairie region. Black vertical lines represent 90% confidence intervals. The presence/absence of trees affects the presence and abundance of many species; therefore, separate figures are presented for treed and non-treed sites in the prairie region.](Amphibians_files/figure-html/coefficients/south/CATO-combined_2022-01-20.png)
+![The predicted relative abundance (bars) of Canadian Toad as a function of soil and human footprint types in the prairie region. Black vertical lines represent 90% confidence intervals. The presence/absence of trees affects the presence and abundance of many species; therefore, separate figures are presented for treed and non-treed sites in the prairie region.](Amphibians_files/figure-html/coefficients/south/CATO-combined_2022-01-20.png)
 
 </center>
 
