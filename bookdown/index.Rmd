@@ -21,7 +21,7 @@ We would like to acknowledge that this work would not be possible without the de
 
 ## Suggested citation
 
-Alberta Biodiversity Monitoring Institute. 2022. Using autonomous recording units to develop species distribution models for vocalizing amphibians in Alberta, Canada. Alberta Biodiversity Monitoring Institute, Alberta, Canada. (https://abbiodiversity.github.io/Amphibians/) 
+Alberta Biodiversity Monitoring Institute. 2022. Using autonomous recording units to develop species distribution models for vocalizing amphibians in Alberta, Canada. Alberta Biodiversity Monitoring Institute, Alberta, Canada. (https://abbiodiversity.github.io/AmphibianModels/) 
 
 ## Contact
 
