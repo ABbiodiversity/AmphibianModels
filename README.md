@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Alberta Biodiversity Monitoring Institute (ABMI) has developed a monitoring program for vocalizing amphibians within Alberta. This repository contains a **bookdown** document (https://abbiodiversity.github.io/Amphibians/) describing how data was collected, processed, and analysed. This document will be update as necessary to reflect changes in available data and modeling procedures. Readers can find the most up-to-date results on the ABMI Biodiversity Browser (https://www.abmi.ca/home/data-analytics/biobrowser-home).
+The Alberta Biodiversity Monitoring Institute (ABMI) has developed a monitoring program for vocalizing amphibians within Alberta. This repository contains a **bookdown** document (https://abbiodiversity.github.io/AmphibianModels/) describing how data was collected, processed, and analysed. This document will be update as necessary to reflect changes in available data and modeling procedures. Readers can find the most up-to-date results on the ABMI Biodiversity Browser (https://www.abmi.ca/home/data-analytics/biobrowser-home).
 
 ## Acknowledgements
 
