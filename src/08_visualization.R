@@ -783,7 +783,7 @@ dev.off()
 # Visualize sector effects
 #
 
-load("results/tables/SectorEffects/regional-sector-effects_HFI2018_2023-01-05")
+load("results/tables/SectorEffects/regional-sector-effects_HFI2018_2023-01-06.Rdata")
 
 for (name.id in names(regional.results)) {
     
@@ -888,7 +888,7 @@ add_abmi_fonts()
 # Visualize sector effects
 #
 
-load("results/tables/sectoreffects/regional-linear-features_HFI2018_2023-01-05.Rdata")
+load("results/tables/sectoreffects/regional-linear-features_HFI2018_2023-01-06.Rdata")
 
 ############
 # Forested #
