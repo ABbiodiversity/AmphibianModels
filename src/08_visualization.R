@@ -589,8 +589,8 @@ for (spp in species.names) {
     sector.effect <- as.data.frame(sector.effect)
     sector.effect$LinkID <- rownames(sector.effect)
     sector.effect <- sector.effect[, c(ncol(sector.effect), 1:(ncol(sector.effect) - 1))]
-    write.csv(sector.effect, file = paste0("results/submissions/2022-02-08/", spp, ".csv"),
-              row.names = FALSE)
+    # write.csv(sector.effect, file = paste0("results/submissions/2022-02-08/", spp, ".csv"),
+    #           row.names = FALSE)
     
     # Calculate current and reference abundances
     sector.effect <- data.frame(LinkID = rownames(sector.effect),
@@ -783,7 +783,7 @@ dev.off()
 # Visualize sector effects
 #
 
-load("results/tables/SectorEffects/regional-sector-effects_HFI2018_2022-02-01.Rdata")
+load("results/tables/SectorEffects/regional-sector-effects_HFI2018_2023-01-05")
 
 for (name.id in names(regional.results)) {
     
@@ -888,7 +888,7 @@ add_abmi_fonts()
 # Visualize sector effects
 #
 
-load("results/tables/sectoreffects/regional-linear-features_HFI2018_2022-02-01.Rdata")
+load("results/tables/sectoreffects/regional-linear-features_HFI2018_2023-01-05.Rdata")
 
 ############
 # Forested #
