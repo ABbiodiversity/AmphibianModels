@@ -30,8 +30,8 @@ kgrid$Regions <- ifelse(kgrid$NR %in% c("Boreal", "Foothills", "Canadian Shield"
 kgrid$Regions[kgrid$NSR == "Dry Mixedwood" & kgrid$Lat <= 56.7] <- "Prairie"
 kgrid$Regions[kgrid$NSR == "Montane" & kgrid$Long > -114] <- "Prairie"
 
-# Create thresholds
-occ.threshold <- 0.01
+# Define the overlap region
+load("data/base/kgrid/overlap-region.Rdata")
 
 # Create species list
 se.2018.path <- c(list.files("data/processed/predictions/sectoreffects/", full.names = TRUE))
@@ -52,19 +52,12 @@ species.status <- data.frame(SpeciesID = species.names,
                              Model_south = TRUE,
                              ExpertInclusion = TRUE)
 
-# Load the areas with sector effect information
-load("data/processed/predictions/areas/sector-effect-areas_2021-01-12.Rdata")
-area.2018 <- as.data.frame(as.matrix(area.sector))
-area.2018$LinkID <- rownames(area.2018)
-
-rm(area.sector)
-gc()
-
 # Regional summary
 regional.results <- regional_reports(species.list = se.2018.path,
                                      species.lookup = species.status,
-                                     summary.region = kgrid)
+                                     summary.region = kgrid,
+                                     overlap.region = overlap.region)
 
-save(regional.results, file = "results/tables/sectoreffects/regional-sector-effects_HFI2018_2022-02-01.Rdata")
+save(regional.results, file = "results/tables/sectoreffects/regional-sector-effects_HFI2018_2023-01-06.Rdata")
 
 
