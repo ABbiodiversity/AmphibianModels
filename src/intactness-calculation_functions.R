@@ -279,174 +279,371 @@ bii_se_summary <- function(species.list, se.areas, region.id, species.lookup, st
 # Regional reporting # Creates sector effect information for the two modeling regions (forested vs prairie)
 ######################~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-regional_reports <- function(species.list, species.lookup, summary.region) {
-        
-        # Define blank results
-        north.results <- NULL
-        south.results <- NULL
-        results.out <- list()
-        
-        for( species in species.lookup$SpeciesID ) {
-                
-                # Load the provincial results and identify maximum abundance
-                load.name <- species.list[grep(as.character(species), species.list)]
-                load.name <- load.name[nchar(load.name) == min(nchar(load.name))]
-                load(load.name)
-                rm(load.name)
-                
-                # Define north and south 
-                north.temp <- NULL
-                south.temp <- NULL
-                
-                # Northern predictions
-                if(!is.null(north.sector)) {
+regional_reports <- function(species.list, species.lookup, summary.region, overlap.region) {
+            
+            # Define blank results
+            north.results <- NULL
+            south.results <- NULL
+            results.out <- list()
+            
+            for( species in species.lookup$SpeciesID ) {
+                        
+                        # Load the provincial results and identify maximum abundance
+                        load.name <- species.list[grep(as.character(species), species.list)]
+                        load.name <- load.name[nchar(load.name) == min(nchar(load.name))]
+                        load(load.name)
+                        rm(load.name)
+                        
+                        # Define north and south 
+                        north.temp <- NULL
+                        south.temp <- NULL
+                        model.region <- NULL
+                        
+                        # If north and south regions are available, merge. Otherwise, use what is available
+                        if(!is.null(north.sector)) {
+                                    
+                                    sector.effect <- north.sector
+                                    model.region <- "N"
+                                    
+                        }
+                        
+                        if(!is.null(south.sector)) {
+                                    
+                                    sector.effect <- south.sector
+                                    model.region <- "S"
+                                    
+                        }
+                        
+                        if(!(is.null(south.sector)) & !(is.null(south.sector))) {
+                                    
+                                    model.region <- "B"
+                                    
+                                    # averaging comes here
+                                    north.sector <- north.sector[match(rownames(overlap.region), rownames(north.sector)), ]
+                                    north.sector[is.na(north.sector)] <- 0
+                                    rownames(north.sector) <- rownames(overlap.region)
+                                    
+                                    south.sector <- south.sector[match(rownames(overlap.region), rownames(south.sector)), ]
+                                    south.sector[is.na(south.sector)] <- 0
+                                    rownames(south.sector) <- rownames(overlap.region)
+                                    
+                                    sector.effect <- north.sector
+                                    
+                                    for (i in colnames(sector.effect)) {
+                                                
+                                                sector.effect[, i] <- overlap.region$wN * north.sector[, i] + (1-overlap.region$wN) * south.sector[, i]
+                                                
+                                    }
+                                    
+                        }
+                        
+                        rm(north.sector, south.sector)
+                        gc()
+                        
+                        # Merge predictions with sector areas
+                        sector.effect <- as.data.frame(sector.effect)
+                        sector.effect$LinkID <- rownames(sector.effect)
+                        rownames(sector.effect) <- sector.effect$LinkID
                         
                         # Identify column names for the current, reference, and area groups
-                        cur.names <- colnames(north.sector)[grep("Cur_", colnames(north.sector))]
-                        ref.names <- colnames(north.sector)[grep("Ref_", colnames(north.sector))]
+                        cur.names <- colnames(sector.effect)[grep("Cur_", colnames(sector.effect))]
+                        ref.names <- colnames(sector.effect)[grep("Ref_", colnames(sector.effect))]
                         
                         # Calculate Ref and Current sums
-                        north.sector <- cbind(north.sector, Ref = as.numeric(rowSums(north.sector[, ref.names])))
-                        north.sector <- cbind(north.sector, Cur = as.numeric(rowSums(north.sector[, cur.names])))
+                        sector.effect["Ref"] <- as.numeric(rowSums(sector.effect[, ref.names]))
+                        sector.effect["Cur_2018"] <- as.numeric(rowSums(sector.effect[, cur.names]))
                         
                         # Truncate to 99%
-                        q <- min(quantile(north.sector[, "Ref"], 0.999), quantile(north.sector[, "Cur"], 0.999))
-                        total.ref <- north.sector[, "Ref"]
-                        total.cur <- north.sector[, "Cur"]
+                        q <- min(quantile(sector.effect$Ref, 0.999), quantile(sector.effect$Cur_2018, 0.999))
+                        total.ref <- sector.effect$Ref
+                        total.cur <- sector.effect$Cur_2018
                         
                         for (se.name in ref.names) {
-                                
-                                north.sector[, se.name] <- ifelse(total.ref >= q , (north.sector[, se.name] * (q/total.ref)), north.sector[, se.name])
-                                
+                                    
+                                    sector.effect[, se.name] <- ifelse(total.ref >= q , (sector.effect[, se.name] * (q/total.ref)), sector.effect[, se.name])
+                                    
                         }
                         
                         for (se.name in cur.names) {
-                                
-                                north.sector[, se.name] <- ifelse(total.cur >= q, (north.sector[, se.name] * (q/total.cur)), north.sector[, se.name])
-                                
+                                    
+                                    sector.effect[, se.name] <- ifelse(total.cur >= q, (sector.effect[, se.name] * (q/total.cur)), sector.effect[, se.name])
+                                    
                         }
                         
-                        north.sector[, "Cur_Native"] <- 0.5 * (north.sector[, "Cur_Native"] + north.sector[, "Ref_Native"])
-                        north.sector[, "Ref_Native"] <- north.sector[, "Cur_Native"] 
+                        sector.effect$Cur_Native <- 0.5 * (sector.effect$Cur_Native + sector.effect$Ref_Native)
+                        sector.effect$Ref_Native <- sector.effect$Cur_Native 
                         
-                        # Filter to summary region
-                        region.id <- summary.region[summary.region$Regions == "Forested", "LinkID"]
-                        region.id <- region.id[region.id %in% rownames(north.sector)] # match IDs 
-                        north.sector <- north.sector[region.id, ]
+                        sector.effect["Ref"] <- as.numeric(rowSums(sector.effect[, ref.names]))
+                        sector.effect["Cur_2018"] <- as.numeric(rowSums(sector.effect[, cur.names]))
                         
-                        ##################
-                        # Sector Effects #
-                        ##################
+                        #################
+                        # Sector Effect #
+                        #################
                         
-                        # Create vector for storing results
-                        north.temp <- data.frame(SpeciesID = species)
-                        
-                        # Regional
-                        regional.names <- NULL # Store the regional names for organizing
-                        for (se.name in cur.names[-grep("Native", cur.names)]) {
-                                
-                                update.name <- gsub("Cur", "Total", se.name)
-                                north.temp[update.name] <- ((sum(north.sector[, se.name]) - sum(north.sector[, gsub("Cur", "Ref", se.name)])) / sum(north.sector[, ref.names])) * 100
-                                regional.names <- c(regional.names, update.name)
-                                rm(update.name)
-                                
+                        # North
+                        if(model.region %in% c("B", "N")) {
+                                    
+                                    # Create vector for storing results
+                                    north.temp <- data.frame(SpeciesID = species)
+                                    
+                                    # Filter to summary region
+                                    region.id <- summary.region[summary.region$Regions == "Forested", "LinkID"]
+                                    region.id <- region.id[region.id %in% rownames(sector.effect)] # match IDs 
+                                    forested.sector <- sector.effect[region.id, ]
+                                    
+                                    # Sector effect information is already loaded
+                                    # Regional
+                                    regional.names <- NULL # Store the regional names for organizing
+                                    for (se.name in cur.names[-grep("Native", cur.names)]) {
+                                                
+                                                update.name <- gsub("Cur", "Total", se.name)
+                                                north.temp[update.name] <- ((sum(forested.sector[, se.name]) - sum(forested.sector[, gsub("Cur", "Ref", se.name)])) / sum(forested.sector[, ref.names])) * 100
+                                                regional.names <- c(regional.names, update.name)
+                                                rm(update.name)
+                                                
+                                    }
+                                    
+                                    # Under HF
+                                    under.hf.names <- NULL # Store the under HF names for organizing
+                                    for (se.name in cur.names[-grep("Native", cur.names)]) {
+                                                
+                                                update.name <- gsub("Cur", "UnderHF", se.name)
+                                                north.temp[update.name] <- ((sum(forested.sector[, se.name]) - sum(forested.sector[, gsub("Cur", "Ref", se.name)])) / sum(forested.sector[, gsub("Cur", "Ref", se.name)])) * 100
+                                                under.hf.names <- c(under.hf.names, update.name)
+                                                rm(update.name)
+                                                
+                                    }
+                                    
                         }
                         
-                        # Under HF
-                        under.hf.names <- NULL # Store the under HF names for organizing
-                        for (se.name in cur.names[-grep("Native", cur.names)]) {
-                                
-                                update.name <- gsub("Cur", "UnderHF", se.name)
-                                north.temp[update.name] <- ((sum(north.sector[, se.name]) - sum(north.sector[, gsub("Cur", "Ref", se.name)])) / sum(north.sector[, gsub("Cur", "Ref", se.name)])) * 100
-                                under.hf.names <- c(under.hf.names, update.name)
-                                rm(update.name)
-                                
+                        # South
+                        if(model.region %in% c("B", "S")) {
+                                    
+                                    # Create vector for storing results
+                                    south.temp <- data.frame(SpeciesID = species)
+                                    
+                                    # Filter to summary region
+                                    region.id <- summary.region[summary.region$Regions == "Prairie", "LinkID"]
+                                    region.id <- region.id[region.id %in% rownames(sector.effect)] # match IDs 
+                                    prairie.sector <- sector.effect[region.id, ]
+                                    
+                                    # Sector effect information is already loaded
+                                    # Regional
+                                    regional.names <- NULL # Store the regional names for organizing
+                                    for (se.name in cur.names[-grep("Native", cur.names)]) {
+                                                
+                                                update.name <- gsub("Cur", "Total", se.name)
+                                                south.temp[update.name] <- ((sum(prairie.sector[, se.name]) - sum(prairie.sector[, gsub("Cur", "Ref", se.name)])) / sum(prairie.sector[, ref.names])) * 100
+                                                regional.names <- c(regional.names, update.name)
+                                                rm(update.name)
+                                                
+                                    }
+                                    
+                                    # Under HF
+                                    under.hf.names <- NULL # Store the under HF names for organizing
+                                    for (se.name in cur.names[-grep("Native", cur.names)]) {
+                                                
+                                                update.name <- gsub("Cur", "UnderHF", se.name)
+                                                south.temp[update.name] <- ((sum(prairie.sector[, se.name]) - sum(prairie.sector[, gsub("Cur", "Ref", se.name)])) / sum(prairie.sector[, gsub("Cur", "Ref", se.name)])) * 100
+                                                under.hf.names <- c(under.hf.names, update.name)
+                                                rm(update.name)
+                                                
+                                    }
+                                    
                         }
                         
                         
-                }
-                
-                # Southern predictions
-                if(!is.null(south.sector)) {
+                        # Combine species results
+                        north.results <- rbind(north.results, north.temp)
+                        south.results <- rbind(south.results, south.temp)
                         
-                        # Identify column names for the current, reference, and area groups
-                        cur.names <- colnames(south.sector)[grep("Cur_", colnames(south.sector))]
-                        ref.names <- colnames(south.sector)[grep("Ref_", colnames(south.sector))]
+                        # Store the results
+                        results.out[["North"]] <- north.results
+                        results.out[["South"]] <- south.results
                         
-                        # Calculate Ref and Current sums
-                        south.sector <- cbind(south.sector, Ref = as.numeric(rowSums(south.sector[, ref.names])))
-                        south.sector <- cbind(south.sector, Cur = as.numeric(rowSums(south.sector[, cur.names])))
-                        
-                        # Truncate to 99%
-                        q <- min(quantile(south.sector[, "Ref"], 0.999), quantile(south.sector[, "Cur"], 0.999))
-                        total.ref <- south.sector[, "Ref"]
-                        total.cur <- south.sector[, "Cur"]
-                        
-                        for (se.name in ref.names) {
-                                
-                                south.sector[, se.name] <- ifelse(total.ref >= q , (south.sector[, se.name] * (q/total.ref)), south.sector[, se.name])
-                                
-                        }
-                        
-                        for (se.name in cur.names) {
-                                
-                                south.sector[, se.name] <- ifelse(total.cur >= q, (south.sector[, se.name] * (q/total.cur)), south.sector[, se.name])
-                                
-                        }
-                        
-                        south.sector[, "Cur_Native"] <- 0.5 * (south.sector[, "Cur_Native"] + south.sector[, "Ref_Native"])
-                        south.sector[, "Ref_Native"] <- south.sector[, "Cur_Native"] 
-                        
-                        # Filter to summary region
-                        region.id <- summary.region[summary.region$Regions == "Prairie", "LinkID"]
-                        region.id <- region.id[region.id %in% rownames(south.sector)] # match IDs 
-                        south.sector <- south.sector[region.id, ]
-                        
-                        ##################
-                        # Sector Effects #
-                        ##################
-                        
-                        # Create vector for storing results
-                        south.temp <- data.frame(SpeciesID = species)
-                        
-                        # Regional
-                        regional.names <- NULL # Store the regional names for organizing
-                        for (se.name in cur.names[-grep("Native", cur.names)]) {
-                                
-                                update.name <- gsub("Cur", "Total", se.name)
-                                south.temp[update.name] <- ((sum(south.sector[, se.name]) - sum(south.sector[, gsub("Cur", "Ref", se.name)])) / sum(south.sector[, ref.names])) * 100
-                                regional.names <- c(regional.names, update.name)
-                                rm(update.name)
-                                
-                        }
-                        
-                        # Under HF
-                        under.hf.names <- NULL # Store the under HF names for organizing
-                        for (se.name in cur.names[-grep("Native", cur.names)]) {
-                                
-                                update.name <- gsub("Cur", "UnderHF", se.name)
-                                south.temp[update.name] <- ((sum(south.sector[, se.name]) - sum(south.sector[, gsub("Cur", "Ref", se.name)])) / sum(south.sector[, gsub("Cur", "Ref", se.name)])) * 100
-                                under.hf.names <- c(under.hf.names, update.name)
-                                rm(update.name)
-                                
-                        }
-                        
-                }
-                
-                # Combine species results
-                north.results <- rbind(north.results, north.temp)
-                south.results <- rbind(south.results, south.temp)
-                
-                # Store the results
-                results.out[["North"]] <- north.results
-                results.out[["South"]] <- south.results
-                
-        }
-        
-        # Combine into dataframe
-        results.out[["North"]] <- merge.data.frame(x = species.lookup, y = results.out[["North"]], by = "SpeciesID")
-        results.out[["South"]] <- merge.data.frame(x = species.lookup, y = results.out[["South"]], by = "SpeciesID")
-        
-        return(results.out)
-        
+            }
+            
+            # Combine into dataframe
+            results.out[["North"]] <- merge.data.frame(x = species.lookup, y = results.out[["North"]], by = "SpeciesID")
+            results.out[["South"]] <- merge.data.frame(x = species.lookup, y = results.out[["South"]], by = "SpeciesID")
+            
+            return(results.out)
+            
 }
+
+######################
+# Regional reporting # Creates sector effect information for the two modeling regions (forested vs prairie)
+######################~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# regional_reports_old <- function(species.list, species.lookup, summary.region) {
+#         
+#         # Define blank results
+#         north.results <- NULL
+#         south.results <- NULL
+#         results.out <- list()
+#         
+#         for( species in species.lookup$SpeciesID ) {
+#                 
+#                 # Load the provincial results and identify maximum abundance
+#                 load.name <- species.list[grep(as.character(species), species.list)]
+#                 load.name <- load.name[nchar(load.name) == min(nchar(load.name))]
+#                 load(load.name)
+#                 rm(load.name)
+#                 
+#                 # Define north and south 
+#                 north.temp <- NULL
+#                 south.temp <- NULL
+#                 
+#                 # Northern predictions
+#                 if(!is.null(north.sector)) {
+#                         
+#                         # Identify column names for the current, reference, and area groups
+#                         cur.names <- colnames(north.sector)[grep("Cur_", colnames(north.sector))]
+#                         ref.names <- colnames(north.sector)[grep("Ref_", colnames(north.sector))]
+#                         
+#                         # Calculate Ref and Current sums
+#                         north.sector <- cbind(north.sector, Ref = as.numeric(rowSums(north.sector[, ref.names])))
+#                         north.sector <- cbind(north.sector, Cur = as.numeric(rowSums(north.sector[, cur.names])))
+#                         
+#                         # Truncate to 99%
+#                         q <- min(quantile(north.sector[, "Ref"], 0.999), quantile(north.sector[, "Cur"], 0.999))
+#                         total.ref <- north.sector[, "Ref"]
+#                         total.cur <- north.sector[, "Cur"]
+#                         
+#                         for (se.name in ref.names) {
+#                                 
+#                                 north.sector[, se.name] <- ifelse(total.ref >= q , (north.sector[, se.name] * (q/total.ref)), north.sector[, se.name])
+#                                 
+#                         }
+#                         
+#                         for (se.name in cur.names) {
+#                                 
+#                                 north.sector[, se.name] <- ifelse(total.cur >= q, (north.sector[, se.name] * (q/total.cur)), north.sector[, se.name])
+#                                 
+#                         }
+#                         
+#                         north.sector[, "Cur_Native"] <- 0.5 * (north.sector[, "Cur_Native"] + north.sector[, "Ref_Native"])
+#                         north.sector[, "Ref_Native"] <- north.sector[, "Cur_Native"] 
+#                         
+#                         # Filter to summary region
+#                         region.id <- summary.region[summary.region$Regions == "Forested", "LinkID"]
+#                         region.id <- region.id[region.id %in% rownames(north.sector)] # match IDs 
+#                         north.sector <- north.sector[region.id, ]
+#                         
+#                         ##################
+#                         # Sector Effects #
+#                         ##################
+#                         
+#                         # Create vector for storing results
+#                         north.temp <- data.frame(SpeciesID = species)
+#                         
+#                         # Regional
+#                         regional.names <- NULL # Store the regional names for organizing
+#                         for (se.name in cur.names[-grep("Native", cur.names)]) {
+#                                 
+#                                 update.name <- gsub("Cur", "Total", se.name)
+#                                 north.temp[update.name] <- ((sum(north.sector[, se.name]) - sum(north.sector[, gsub("Cur", "Ref", se.name)])) / sum(north.sector[, ref.names])) * 100
+#                                 regional.names <- c(regional.names, update.name)
+#                                 rm(update.name)
+#                                 
+#                         }
+#                         
+#                         # Under HF
+#                         under.hf.names <- NULL # Store the under HF names for organizing
+#                         for (se.name in cur.names[-grep("Native", cur.names)]) {
+#                                 
+#                                 update.name <- gsub("Cur", "UnderHF", se.name)
+#                                 north.temp[update.name] <- ((sum(north.sector[, se.name]) - sum(north.sector[, gsub("Cur", "Ref", se.name)])) / sum(north.sector[, gsub("Cur", "Ref", se.name)])) * 100
+#                                 under.hf.names <- c(under.hf.names, update.name)
+#                                 rm(update.name)
+#                                 
+#                         }
+#                         
+#                         
+#                 }
+#                 
+#                 # Southern predictions
+#                 if(!is.null(south.sector)) {
+#                         
+#                         # Identify column names for the current, reference, and area groups
+#                         cur.names <- colnames(south.sector)[grep("Cur_", colnames(south.sector))]
+#                         ref.names <- colnames(south.sector)[grep("Ref_", colnames(south.sector))]
+#                         
+#                         # Calculate Ref and Current sums
+#                         south.sector <- cbind(south.sector, Ref = as.numeric(rowSums(south.sector[, ref.names])))
+#                         south.sector <- cbind(south.sector, Cur = as.numeric(rowSums(south.sector[, cur.names])))
+#                         
+#                         # Truncate to 99%
+#                         q <- min(quantile(south.sector[, "Ref"], 0.999), quantile(south.sector[, "Cur"], 0.999))
+#                         total.ref <- south.sector[, "Ref"]
+#                         total.cur <- south.sector[, "Cur"]
+#                         
+#                         for (se.name in ref.names) {
+#                                 
+#                                 south.sector[, se.name] <- ifelse(total.ref >= q , (south.sector[, se.name] * (q/total.ref)), south.sector[, se.name])
+#                                 
+#                         }
+#                         
+#                         for (se.name in cur.names) {
+#                                 
+#                                 south.sector[, se.name] <- ifelse(total.cur >= q, (south.sector[, se.name] * (q/total.cur)), south.sector[, se.name])
+#                                 
+#                         }
+#                         
+#                         south.sector[, "Cur_Native"] <- 0.5 * (south.sector[, "Cur_Native"] + south.sector[, "Ref_Native"])
+#                         south.sector[, "Ref_Native"] <- south.sector[, "Cur_Native"] 
+#                         
+#                         # Filter to summary region
+#                         region.id <- summary.region[summary.region$Regions == "Prairie", "LinkID"]
+#                         region.id <- region.id[region.id %in% rownames(south.sector)] # match IDs 
+#                         south.sector <- south.sector[region.id, ]
+#                         
+#                         ##################
+#                         # Sector Effects #
+#                         ##################
+#                         
+#                         # Create vector for storing results
+#                         south.temp <- data.frame(SpeciesID = species)
+#                         
+#                         # Regional
+#                         regional.names <- NULL # Store the regional names for organizing
+#                         for (se.name in cur.names[-grep("Native", cur.names)]) {
+#                                 
+#                                 update.name <- gsub("Cur", "Total", se.name)
+#                                 south.temp[update.name] <- ((sum(south.sector[, se.name]) - sum(south.sector[, gsub("Cur", "Ref", se.name)])) / sum(south.sector[, ref.names])) * 100
+#                                 regional.names <- c(regional.names, update.name)
+#                                 rm(update.name)
+#                                 
+#                         }
+#                         
+#                         # Under HF
+#                         under.hf.names <- NULL # Store the under HF names for organizing
+#                         for (se.name in cur.names[-grep("Native", cur.names)]) {
+#                                 
+#                                 update.name <- gsub("Cur", "UnderHF", se.name)
+#                                 south.temp[update.name] <- ((sum(south.sector[, se.name]) - sum(south.sector[, gsub("Cur", "Ref", se.name)])) / sum(south.sector[, gsub("Cur", "Ref", se.name)])) * 100
+#                                 under.hf.names <- c(under.hf.names, update.name)
+#                                 rm(update.name)
+#                                 
+#                         }
+#                         
+#                 }
+#                 
+#                 # Combine species results
+#                 north.results <- rbind(north.results, north.temp)
+#                 south.results <- rbind(south.results, south.temp)
+#                 
+#                 # Store the results
+#                 results.out[["North"]] <- north.results
+#                 results.out[["South"]] <- south.results
+#                 
+#         }
+#         
+#         # Combine into dataframe
+#         results.out[["North"]] <- merge.data.frame(x = species.lookup, y = results.out[["North"]], by = "SpeciesID")
+#         results.out[["South"]] <- merge.data.frame(x = species.lookup, y = results.out[["South"]], by = "SpeciesID")
+#         
+#         return(results.out)
+#         
+# }
+
