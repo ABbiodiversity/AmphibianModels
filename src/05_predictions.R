@@ -78,7 +78,10 @@ make_clim <- function(x, birds=FALSE, truncate_latitude=FALSE) {
                            `xAHM:xMAT`=z[,"xAHM"]*z[,"xMAT"],
                            `xX:xY`=z[,"xX"]*z[,"xY"])
         } else {
-                LAT <- pmin(x$POINT_Y, 56.5)
+                
+                # Corrected improper latitude truncation
+                # LAT <- pmin(x$POINT_Y, 56.5)
+                LAT <- x$POINT_Y
                 z <- with(x, cbind(
                         Intercept=1,
                         Lat=LAT,
