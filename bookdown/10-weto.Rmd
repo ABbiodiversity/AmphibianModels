@@ -99,7 +99,7 @@ We predicted that Western Toad has local positive response to the energy, forest
 
 ### Prairie Region
 
-We predicted that Western Toad has local positive response to the energy and transportation sectors. In addition, we observe a large positive regional effect of the energy and transportation sectors. However, the abundance of Western Toad within the Prairie region is relatively small compared to the Forested region.
+We predicted that Western Toad has local positive response to the energy and transportation sectors. In addition, we observe a large positive regional effect of the agriculture and transportation sectors. However, the abundance of Western Toad within the Prairie region is relatively small compared to the Forested region.
 
 <center>
 ![Regional (left) and local (right) sector effects for Western Toad within the Prairie Region](Amphibians_files/figure-html/sectoreffects/south/WETO.png)

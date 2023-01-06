@@ -87,7 +87,7 @@ Regional sector effects represent the change in the total regional population by
 
 ### Forested Region
 
-We predicted that Canadian Toad has local negative response to agriculture, energy, forestry, and urban/industrial footprint in this region. There is a small positive response to the transportation sector. However, we only observed small changes in the regional sector effect.
+We predicted that Canadian Toad has local negative response to agriculture, energy, forestry, and urban/industrial footprint in this region. There is a positive response to the transportation sector. However, we only observed small changes in the regional sector effect.
 
 <center>
 ![Regional (left) and local (right) sector effects for Canadian Toad within the Forested Region](Amphibians_files/figure-html/sectoreffects/north/CATO.png)

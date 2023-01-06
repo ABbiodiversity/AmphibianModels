@@ -808,6 +808,18 @@ for (name.id in names(regional.results)) {
     # Sector effect colors
     colour.pal <- c("#FFD25D", "#836F9A", "#77AA67", "#EB7170", "#4E4E4E")
     
+    # If South, drop the forestry results
+    if(name.id == "South") {
+
+                region.se <- droplevels(region.se[region.se$Sector != "Forestry", ])
+               
+                # Correct color palette
+                colour.pal <- c("#FFD25D", "#836F9A", "#EB7170", "#4E4E4E")
+                
+    }
+    
+
+    
     for (species in unique(region.se$SpeciesID)) {
         
         # Subset species
@@ -858,7 +870,6 @@ for (name.id in names(regional.results)) {
         
         
     }
-    
     
 }
 

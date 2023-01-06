@@ -96,7 +96,7 @@ We predicted that Boreal Chorus Frog has local positive responses to all sectors
 
 ### Prairie Region
 
-We predicted that Boreal Chorus Frog has local positive response to agriculture and urban industrial footprints. However, the responses are strongest for agriculture, forestry, and urban/industrial footprint types. In addition, we observe a small regional effect of agriculture. 
+We predicted that Boreal Chorus Frog has local positive response to agriculture and urban industrial footprints. In addition, we observe a moderate regional effect of agriculture. 
 
 <center>
 ![Regional (left) and local (right) sector effects for Boreal Chorus Frog within the Prairie Region](Amphibians_files/figure-html/sectoreffects/south/BCFR.png)
