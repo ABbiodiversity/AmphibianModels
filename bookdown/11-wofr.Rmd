@@ -68,7 +68,7 @@ The vegetation based models indicate that Wood Frog increased in all linear feat
 Under reference conditions, Wood Frog is predicted to be moderately abundant throughout all natural regions except areas of the Rocky Mountains and Grasslands (left). Under current landcover conditions (2018 footprint) we observe similar abundance throughout these natural regions (right).
 
 <center>
-![The predicted relative abundance of Wood Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta under reference conditions.](Amphibians_files/figure-html/maps/WOFR_reference-abundance_2022-02-08.png){width=45%} ![The predicted relative abundance of Wood Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta under current conditions (2018).](Amphibians_files/figure-html/maps/WOFR_current-abundance_2022-02-08.png){width=45%}
+![The predicted relative abundance of Wood Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta under reference conditions.](Amphibians_files/figure-html/maps/WOFR_reference-abundance_2023-01-06.png){width=45%} ![The predicted relative abundance of Wood Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta under current conditions (2018).](Amphibians_files/figure-html/maps/WOFR_current-abundance_2023-01-06.png){width=45%}
 
 </center>
 
@@ -76,7 +76,7 @@ Under reference conditions, Wood Frog is predicted to be moderately abundant thr
 We predicted increases in suitable habitat for Wood Frog throughout the Parkland natural region. This is driven by our models predicting high abundance in agricultural footprint types.
 
 <center>
-![The change in predicted relative abundance of Wood Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta between reference and current condition (2018 footprint).](Amphibians_files/figure-html/maps/WOFR_difference_2022-02-08.png){width=80%} 
+![The change in predicted relative abundance of Wood Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta between reference and current condition (2018 footprint).](Amphibians_files/figure-html/maps/WOFR_difference_2023-01-06.png){width=80%} 
 
 </center>
 

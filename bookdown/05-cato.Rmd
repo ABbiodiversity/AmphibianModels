@@ -68,14 +68,14 @@ The vegetation based models indicate that Canadian Toad decreased in energy base
 Under both reference (left) and current (right) conditions, Canadian Toad is predicted to have moderate abundance throughout the eastern portion of Alberta.
 
 <center>
-![The predicted relative abundance of Canadian Toad as a function of vegetation, soil, human footprint, and space/climate across Alberta under reference conditions.](Amphibians_files/figure-html/maps/CATO_reference-abundance_2022-02-08.png){width=45%}![The predicted relative abundance of Canadian Toad as a function of vegetation, soil, human footprint, and space/climate across Alberta under current conditions (2018).](Amphibians_files/figure-html/maps/CATO_current-abundance_2022-02-08.png){width=45%} 
+![The predicted relative abundance of Canadian Toad as a function of vegetation, soil, human footprint, and space/climate across Alberta under reference conditions.](Amphibians_files/figure-html/maps/CATO_reference-abundance_2023-01-06.png){width=45%}![The predicted relative abundance of Canadian Toad as a function of vegetation, soil, human footprint, and space/climate across Alberta under current conditions (2018).](Amphibians_files/figure-html/maps/CATO_current-abundance_2023-01-06.png){width=45%} 
 
 </center>
 
 We predicted decreases in suitable habitat for Canadian Toad throughout the eastern portion of the Grasslands natural region. This is driven by our models predicting low abundance in agricultural footprint types.
 
 <center>
-![The change in predicted relative abundance of Canadian Toad as a function of vegetation, soil, human footprint, and space/climate across Alberta between reference and current condition (2018 footprint).](Amphibians_files/figure-html/maps/CATO_difference_2022-02-08.png){width=80%} 
+![The change in predicted relative abundance of Canadian Toad as a function of vegetation, soil, human footprint, and space/climate across Alberta between reference and current condition (2018 footprint).](Amphibians_files/figure-html/maps/CATO_difference_2023-01-06.png){width=80%} 
 
 </center>
 

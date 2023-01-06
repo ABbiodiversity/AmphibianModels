@@ -68,14 +68,14 @@ Boreal Chorus Frog was predicted to increase in all linear feature types based o
 Under reference conditions, Boreal Chorus Frog is predicted to be moderately abundant throughout all natural regions except the Rocky Mountains (left). Under current landcover conditions (2018 footprint) we observe high abundance throughout the Grassland and Parkland natural regions (right).
 
 <center>
-![The predicted relative abundance of Boreal Chorus Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta under reference conditions.](Amphibians_files/figure-html/maps/BCFR_reference-abundance_2022-02-08.png){width=45%} ![The predicted relative abundance of Boreal Chorus Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta under current conditions (2018).](Amphibians_files/figure-html/maps/BCFR_current-abundance_2022-02-08.png){width=45%} 
+![The predicted relative abundance of Boreal Chorus Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta under reference conditions.](Amphibians_files/figure-html/maps/BCFR_reference-abundance_2023-01-06.png){width=45%} ![The predicted relative abundance of Boreal Chorus Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta under current conditions (2018).](Amphibians_files/figure-html/maps/BCFR_current-abundance_2023-01-06.png){width=45%} 
 
 </center>
 
 Overall, we predicted increases in suitable habitat for Boreal Chorus Frog throughout the Parkland natural region. This is driven by our models predicting high abundance in agricultural footprint types.
 
 <center>
-![The change in predicted relative abundance of Boreal Chorus Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta between reference and current condition (2018 footprint).](Amphibians_files/figure-html/maps/BCFR_difference_2022-02-08.png){width=80%} 
+![The change in predicted relative abundance of Boreal Chorus Frog as a function of vegetation, soil, human footprint, and space/climate across Alberta between reference and current condition (2018 footprint).](Amphibians_files/figure-html/maps/BCFR_difference_2023-01-06.png){width=80%} 
 
 </center>
 
