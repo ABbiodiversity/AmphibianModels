@@ -314,7 +314,7 @@ regional_reports <- function(species.list, species.lookup, summary.region, overl
                                     
                         }
                         
-                        if(!(is.null(south.sector)) & !(is.null(south.sector))) {
+                        if(!(is.null(north.sector)) & !(is.null(south.sector))) {
                                     
                                     model.region <- "B"
                                     
